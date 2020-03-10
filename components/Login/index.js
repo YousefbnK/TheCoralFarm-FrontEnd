@@ -13,6 +13,10 @@ class Login extends Component {
     password: ""
   };
 
+  submitLogin = () => {
+    authStore.login(this.state, this.props.navigation);
+  };
+
   render() {
     return (
       <Form>
@@ -31,12 +35,13 @@ class Login extends Component {
             onChangeText={password => this.setState({ password })}
           />
         </Item>
-        <Button
-          full
-          onPress={() => alert("You need to implement Login noob...")}
-        >
+        <Button full onPress={this.submitLogin}>
           <Text>Login</Text>
         </Button>
+
+        <Text onPress={() => this.props.navigation.navigate("Register")}>
+          Click here to register!
+        </Text>
       </Form>
     );
   }
