@@ -2,6 +2,7 @@ import { decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
+import { withNavigation } from "react-navigation";
 
 class AuthStore {
   user = null;
@@ -21,13 +22,13 @@ class AuthStore {
     }
   };
 
-  login = async userData => {
+  login = async (userData, navigation) => {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
-      console.log("info", userData);
-      console.log("Logged in !", user.data);
       this.setUser(user.access);
+      console.log("Logged in !");
+      navigation.navigate("Profile");
     } catch (err) {
       console.log("something went wrong logging in");
     }
@@ -37,16 +38,15 @@ class AuthStore {
     try {
       const res = await instance.post("register/", userData);
       const data = res.data;
-      console.log("Signed Up !", data);
       await this.setUser(data.token);
-      // navigation.navigate("ListScreen");
+      navigation.navigate("Profile");
     } catch (error) {
       console.error(error.response.data);
     }
   };
 
-  logout = () => {
-    this.setUser();
+  logout = async () => {
+    await this.setUser();
   };
 
   checkForToken = async () => {
@@ -74,4 +74,4 @@ decorate(AuthStore, {
 
 const authStore = new AuthStore();
 authStore.checkForToken();
-export default authStore;
+export default withNavigation(authStore);

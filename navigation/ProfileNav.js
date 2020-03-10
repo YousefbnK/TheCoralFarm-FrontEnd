@@ -12,7 +12,7 @@ const ProfileStack = createStackNavigator(
     Profile: ProfileScreen
   },
   {
-    initialRouteName: "Register",
+    initialRouteName: "Login",
     defaultNavigationOptions: {
       title: "The Coral Farm"
     }

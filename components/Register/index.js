@@ -26,14 +26,14 @@ class Register extends Component {
           style={styles.authTextInput}
           placeholder="Username"
           placeholderTextColor="#A6AEC1"
-          onChangeText={text => this.setState({ username: text })}
+          onChangeText={username => this.setState({ username })}
         />
         <TextInput
           style={styles.authTextInput}
           placeholder="Password"
           placeholderTextColor="#A6AEC1"
           secureTextEntry={true}
-          onChangeText={text => this.setState({ password: text })}
+          onChangeText={password => this.setState({ password })}
         />
         <TouchableOpacity style={styles.authButton} onPress={this.submitSignup}>
           <Text style={styles.authButtonText}>Register</Text>
