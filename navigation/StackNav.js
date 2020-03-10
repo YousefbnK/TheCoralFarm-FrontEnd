@@ -2,12 +2,12 @@ import { createStackNavigator } from "react-navigation-stack";
 
 // Components
 import CoralList from "../components/List";
-import ProfileScreen from "../components/Profile";
+// import ProfileScreen from "../components/Profile";
 
 const StackNav = createStackNavigator(
   {
-    ListScreen: CoralList,
-    Profile: ProfileScreen
+    ListScreen: CoralList
+    // Profile: ProfileScreen
   },
   {
     initialRouteName: "ListScreen",
