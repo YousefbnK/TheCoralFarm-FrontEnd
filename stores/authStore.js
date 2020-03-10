@@ -31,6 +31,18 @@ class AuthStore {
     }
   };
 
+  register = async userData => {
+    try {
+      const res = await instance.post("/api/register/", userData);
+      const data = res.data;
+      //   console.log("Signed Up !", data);
+      await this.setUser(data.token);
+      // navigation.navigate("ListScreen");
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
+
   logout = () => {
     this.setUser();
   };
