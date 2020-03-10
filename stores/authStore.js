@@ -23,8 +23,10 @@ class AuthStore {
 
   login = async userData => {
     try {
-      const res = await instance.post("/api/login/", userData);
+      const res = await instance.post("login/", userData);
       const user = res.data;
+      console.log("info", userData);
+      console.log("Logged in !", user.data);
       this.setUser(user.access);
     } catch (err) {
       console.log("something went wrong logging in");
@@ -33,9 +35,9 @@ class AuthStore {
 
   register = async userData => {
     try {
-      const res = await instance.post("/api/register/", userData);
+      const res = await instance.post("register/", userData);
       const data = res.data;
-      //   console.log("Signed Up !", data);
+      console.log("Signed Up !", data);
       await this.setUser(data.token);
       // navigation.navigate("ListScreen");
     } catch (error) {
