@@ -37,7 +37,7 @@ class Login extends Component {
           secureTextEntry={true}
           onChangeText={() => this.setState({ password })}
         />
-        <TouchableOpacity style={styles.authButton} onPress={this.submitSignup}>
+        <TouchableOpacity style={styles.authButton} onPress={this.submitLogin}>
           <Text style={styles.authButtonText}>Log in</Text>
         </TouchableOpacity>
         <Text
