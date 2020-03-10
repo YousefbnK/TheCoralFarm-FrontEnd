@@ -8,9 +8,9 @@ import styles from "./styles";
 
 //Stores
 
-import authStore from "../../Stores/AuthStore";
+import authStore from "../../stores/authStore";
 
-class Signup extends Component {
+class Register extends Component {
   state = {
     username: "",
     password: ""
@@ -21,7 +21,7 @@ class Signup extends Component {
   render() {
     return (
       <View style={styles.authContainer}>
-        <Text style={styles.authTitle}>Signup</Text>
+        <Text style={styles.authTitle}>Register</Text>
         <TextInput
           style={styles.authTextInput}
           placeholder="Username"
@@ -36,7 +36,7 @@ class Signup extends Component {
           onChangeText={text => this.setState({ password: text })}
         />
         <TouchableOpacity style={styles.authButton} onPress={this.submitSignup}>
-          <Text style={styles.authButtonText}>Sign up</Text>
+          <Text style={styles.authButtonText}>Register</Text>
         </TouchableOpacity>
         <Text
           style={styles.authOther}
@@ -49,8 +49,8 @@ class Signup extends Component {
   }
 }
 
-Signup.navigationOptions = {
+Register.navigationOptions = {
   title: "Signup"
 };
 
-export default Signup;
+export default Register;
