@@ -6,11 +6,12 @@ import LoginScreen from "../components/Login";
 
 const ProfileStack = createStackNavigator(
   {
-    Profile: ProfileScreen,
-    Login: LoginScreen
+    Register: Register,
+    Login: LoginScreen,
+    Profile: ProfileScreen
   },
   {
-    initialRouteName: "Profile",
+    initialRouteName: "Register",
     defaultNavigationOptions: {
       title: "The Coral Farm"
     }
