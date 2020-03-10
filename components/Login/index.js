@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
-// NativeBase Components
-import { Form, Item, Input, Button, Text } from "native-base";
+// Styling Components
+import { TextInput, TouchableOpacity, View } from "react-native";
+import { Text } from "native-base";
+
+import styles from "./styles";
 
 // Store
 import authStore from "../../stores/authStore";
@@ -19,30 +22,31 @@ class Login extends Component {
 
   render() {
     return (
-      <Form>
-        <Item>
-          <Input
-            placeholder="Username"
-            autoCapitalize="none"
-            onChangeText={username => this.setState({ username })}
-          />
-        </Item>
-        <Item last>
-          <Input
-            placeholder="Password"
-            autoCapitalize="none"
-            secureTextEntry={true}
-            onChangeText={password => this.setState({ password })}
-          />
-        </Item>
-        <Button full onPress={this.submitLogin}>
-          <Text>Login</Text>
-        </Button>
-
-        <Text onPress={() => this.props.navigation.navigate("Register")}>
-          Click here to register!
+      <View style={styles.authContainer}>
+        <Text style={styles.authTitle}>Log in</Text>
+        <TextInput
+          style={styles.authTextInput}
+          placeholder="Username"
+          placeholderTextColor="#A6AEC1"
+          onChangeText={() => this.setState({ username })}
+        />
+        <TextInput
+          style={styles.authTextInput}
+          placeholder="Password"
+          placeholderTextColor="#A6AEC1"
+          secureTextEntry={true}
+          onChangeText={() => this.setState({ password })}
+        />
+        <TouchableOpacity style={styles.authButton} onPress={this.submitSignup}>
+          <Text style={styles.authButtonText}>Log in</Text>
+        </TouchableOpacity>
+        <Text
+          style={styles.authOther}
+          onPress={() => this.props.navigation.navigate("Register")}
+        >
+          Click here to Register!
         </Text>
-      </Form>
+      </View>
     );
   }
 }
