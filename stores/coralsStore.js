@@ -1,7 +1,8 @@
 import { decorate, observable } from "mobx";
-import { instance } from "./instance";
-import corals from "../data";
+// import { instance } from "./instance";
+
 // for now i'm using a dummy data delete it later
+import corals from "../data";
 
 class CoralStore {
   coralList = [];
@@ -10,8 +11,8 @@ class CoralStore {
   //   fetchCorals = async () => {
   //     try {
   //       const res = await instance.get("?format=json");
-  //       const coffeeshops = res.data;
-  //       this.coffeeshops = coffeeshops;
+  //       const coral = res.data;
+  //       this.coralList = coral;
   //       this.loading = false;
   //     } catch (err) {
   //       console.error(err);
