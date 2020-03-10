@@ -6,11 +6,12 @@ import { Text, List, Button } from "native-base";
 
 // Component
 import Coralcard from "./CoralCard";
+import Profile from "../Profile";
 
 // // Stores
 import cralStore from "../../stores/coralsStore";
 
-const Corallist = () => {
+const CoralList = ({ navigation }) => {
   const coraltems = cralStore.coralList.map(item => (
     <Coralcard coral={item} key={item.name} />
   ));
@@ -18,15 +19,16 @@ const Corallist = () => {
   return (
     <List>
       {coraltems}
-      <Button full dangerS>
+      <Button full>
         <Text>Login</Text>
       </Button>
+      <Profile />
     </List>
   );
 };
 
-// CoffeeCart.navigationOptions = {
-//   title: "Cart"
-// };
+CoralList.navigationOptions = {
+  title: "Coral"
+};
 
-export default observer(Corallist);
+export default observer(CoralList);

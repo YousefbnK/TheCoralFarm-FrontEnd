@@ -28,7 +28,7 @@ class AuthStore {
       const user = res.data;
       this.setUser(user.access);
       console.log("Logged in !");
-      navigation.navigate("Profile");
+      navigation.navigate("ListScreen");
     } catch (err) {
       console.log("something went wrong logging in");
     }
