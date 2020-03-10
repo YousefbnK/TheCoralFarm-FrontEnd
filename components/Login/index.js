@@ -28,14 +28,14 @@ class Login extends Component {
           style={styles.authTextInput}
           placeholder="Username"
           placeholderTextColor="#A6AEC1"
-          onChangeText={() => this.setState({ username })}
+          onChangeText={text => this.setState({ username: text })}
         />
         <TextInput
           style={styles.authTextInput}
           placeholder="Password"
           placeholderTextColor="#A6AEC1"
           secureTextEntry={true}
-          onChangeText={() => this.setState({ password })}
+          onChangeText={text => this.setState({ password: text })}
         />
         <TouchableOpacity style={styles.authButton} onPress={this.submitLogin}>
           <Text style={styles.authButtonText}>Log in</Text>
