@@ -11,7 +11,7 @@ import CartButton from "../Buttons/CartButton";
 import ProfileButton from "../Buttons/ProfileButton";
 
 // // Stores
-import coralStore from "../../stores/coralsStore";
+import coralStore from "../../stores/coralStore";
 
 class CoralList extends Component {
   coraltems = coralStore.coralList.map(item => (

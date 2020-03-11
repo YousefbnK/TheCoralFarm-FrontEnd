@@ -26,8 +26,8 @@ class CartStore {
 }
 
 decorate(CartStore, {
-  items: observable,
-  quantity: computed
+  items: observable
+  //   quantity: computed
 });
 
 const cartStore = new CartStore();
