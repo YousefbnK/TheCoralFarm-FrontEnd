@@ -6,8 +6,8 @@ import StackNav from "./StackNav";
 import AuthNav from "./AuthNav";
 
 const SwitchNav = createSwitchNavigator({
-  AuthNav: AuthNav,
-  StackNav: StackNav
+  StackNav: StackNav,
+  AuthNav: AuthNav
 });
 
 export default SwitchNav;

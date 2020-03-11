@@ -6,8 +6,8 @@ import corals from "../data";
 import coralType from "../typeData";
 
 class CoralStore {
-  coralList = [corals];
-  coralType = [coralType];
+  coralList = [];
+  // coralType = [coralType];
   loading = true;
 
   // fetchCoraltype = async () => {
@@ -22,7 +22,7 @@ class CoralStore {
   //   }
   // };
 
-  // fetchcorals = () => (this.coralList = corals);
+  fetchcorals = () => (this.coralList = corals);
 
   // fetchCoraltype = () => (this.coralType = coralstype);
 }
@@ -35,6 +35,5 @@ decorate(CoralStore, {
 
 const coralStore = new CoralStore();
 coralStore.fetchcorals();
-coralStore.fetchCoraltype();
 
 export default coralStore;

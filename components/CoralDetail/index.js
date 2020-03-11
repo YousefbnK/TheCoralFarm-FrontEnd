@@ -25,8 +25,8 @@ import styles from "./styles";
 import CartButton from "../Buttons/CartButton";
 
 // // Stores
-import coralStore from "../../stores/coralsStore";
-import cartStore from "../../Stores/cartStore";
+import coralStore from "../../stores/coralStore";
+import cartStore from "../../stores/CartStore";
 
 class CoralDetail extends Component {
   state = {
@@ -50,19 +50,19 @@ class CoralDetail extends Component {
           <Card transparent style={styles.card}>
             <CardItem>
               <Left>
-                <Text style={styles.text}>
-                  {coral.name + "\n"}
-                  <Text note>{coral.name}</Text>
-                </Text>
+                <Text style={styles.text}>{coral.name}</Text>
+                <Text note>{coral.name}</Text>
               </Left>
               <Body />
               <Right>
-                <Thumbnail bordered source={{ uri: coral.img }} />
+                <Thumbnail bordered source={{ uri: coral.image }} />
               </Right>
             </CardItem>
 
             <CardItem>
-              <Body>{coral.name}</Body>
+              <Body>
+                <Text>{coral.name}</Text>
+              </Body>
             </CardItem>
 
             <CardItem>
@@ -87,7 +87,7 @@ class CoralDetail extends Component {
   }
 }
 
-CoraleDetail.navigationOptions = ({ navigation }) => ({
+CoralDetail.navigationOptions = ({ navigation }) => ({
   title: navigation.getParam("coffeeshopName"),
   headerRight: <CartButton />
 });
