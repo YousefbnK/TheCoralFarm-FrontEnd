@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Text, List, Button, View } from "native-base";
+import { Content, List } from "native-base";
 import styles from "./styles";
 
 // Component
@@ -17,14 +17,9 @@ const CoralList = () => {
   ));
 
   return (
-    <View style={styles.header}>
-      <List>
-        {coraltems}
-        <Button full>
-          <Text>Login</Text>
-        </Button>
-      </List>
-    </View>
+    <Content style={styles.header}>
+      <List>{coraltems}</List>
+    </Content>
   );
 };
 
