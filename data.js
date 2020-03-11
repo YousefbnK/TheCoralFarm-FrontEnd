@@ -23,7 +23,7 @@ const corals = [
     id: 3,
     name: "coded",
     price: "50.000",
-    image: "http://127.0.0.1:8000/media/LPS_fwMltaH.PNG",
+    image: "../",
     light: "med",
     flow: "med",
     care: "med",
