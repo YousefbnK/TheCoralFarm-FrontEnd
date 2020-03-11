@@ -3,11 +3,11 @@ import { instance } from "./instance2";
 
 // for now i'm using a dummy data delete it later
 import corals from "../data";
-import coralstype from "../typeData";
+import coralType from "../typeData";
 
 class CoralStore {
-  coralList = [];
-  coralType = [];
+  coralList = [corals];
+  coralType = [coralType];
   loading = true;
 
   // fetchCoraltype = async () => {
@@ -22,9 +22,9 @@ class CoralStore {
   //   }
   // };
 
-  fetchcorals = () => (this.coralList = corals);
+  // fetchcorals = () => (this.coralList = corals);
 
-  fetchCoraltype = () => (this.coralType = coralstype);
+  // fetchCoraltype = () => (this.coralType = coralstype);
 }
 
 decorate(CoralStore, {
