@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
@@ -7,24 +7,30 @@ import styles from "./styles";
 
 // Component
 import Coralcard from "./CoralCard";
+import CartButton from "../Buttons/CartButton";
+import ProfileButton from "../Buttons/ProfileButton";
 
 // // Stores
-import cralStore from "../../stores/coralsStore";
+import coralStore from "../../stores/coralsStore";
 
-const CoralList = () => {
-  const coraltems = cralStore.coralList.map(item => (
+class CoralList extends Component {
+  coraltems = coralStore.coralList.map(item => (
     <Coralcard coral={item} key={item.name} />
   ));
 
-  return (
-    <Content style={styles.header}>
-      <List>{coraltems}</List>
-    </Content>
-  );
-};
+  render() {
+    return (
+      <Content style={styles.header}>
+        <List>{this.coraltems}</List>
+      </Content>
+    );
+  }
+}
 
 CoralList.navigationOptions = {
-  title: "Home"
+  title: "Coral List",
+  headerRight: <CartButton />,
+  headerLeft: <ProfileButton />
 };
 
 export default observer(CoralList);

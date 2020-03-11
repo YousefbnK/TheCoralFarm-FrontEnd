@@ -32,8 +32,4 @@ const Coralcard = ({ coral }) => {
   );
 };
 
-// CoffeeCart.navigationOptions = {
-//   title: "Cart"
-// };
-
 export default observer(Coralcard);
