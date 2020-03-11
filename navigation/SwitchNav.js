@@ -7,10 +7,9 @@ import AuthNav from "./AuthNav";
 import DrawerNav from "./DrawerNav";
 
 const SwitchNav = createSwitchNavigator({
-  AuthNav: AuthNav,
-  // StackNav: StackNav,
   DrawerNav: DrawerNav,
   AuthNav: AuthNav
+  // StackNav: StackNav,
 });
 
 export default SwitchNav;

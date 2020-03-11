@@ -9,10 +9,10 @@ import styles from "./styles";
 import Coralcard from "./CoralCard";
 
 // // Stores
-import cralStore from "../../stores/coralsStore";
+import coralStore from "../../stores/coralsStore";
 
 const CoralList = () => {
-  const coraltems = cralStore.coralList.map(item => (
+  const coraltems = coralStore.coralList.map(item => (
     <Coralcard coral={item} key={item.name} />
   ));
 

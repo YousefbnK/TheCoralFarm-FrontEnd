@@ -9,7 +9,8 @@ import CoralType from "../components/type";
 const StackNav = createStackNavigator(
   {
     ListScreen: CoralList,
-    TypeScreen: CoralType
+    TypeScreen: CoralType,
+    DetailScreen: CoraleDetail
   },
   {
     initialRouteName: "ListScreen",
