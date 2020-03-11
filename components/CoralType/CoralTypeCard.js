@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import { observer } from "./node_modules/mobx-react";
+import React from "react";
+import { observer } from "mobx-react";
 import { ImageBackground, View, Image } from "react-native";
 
 // NativeBase Components
@@ -8,7 +8,7 @@ import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 // Style
 import styles from "./styles";
 
-const Typecard = ({ type }) => {
+const CoralTypecard = ({ type }) => {
   return (
     <>
       <Text>{type.name}</Text>
@@ -40,4 +40,4 @@ const Typecard = ({ type }) => {
 //   title: "Cart"
 // };
 
-export default observer(Typecard);
+export default observer(CoralTypecard);
