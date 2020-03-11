@@ -1,5 +1,5 @@
-import React from "react";
-import { observer } from "mobx-react";
+import React from "./node_modules/react";
+import { observer } from "./node_modules/mobx-react";
 
 // NativeBase Components
 import { Text, List, Button } from "native-base";

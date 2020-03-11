@@ -10,7 +10,7 @@ const DrawerNav = createDrawerNavigator(
     Profile: ProfileScreen
   },
   {
-    initialRouteName: "ListScreen",
+    initialRouteName: "Profile",
     defaultNavigationOptions: {
       title: "Profile"
     }
