@@ -1,5 +1,6 @@
 import React from "react";
-import { observer } from "mobx-react";
+import { withNavigation } from "react-navigation";
+// import { observer } from "mobx-react";
 
 import { ImageBackground, View } from "react-native";
 
@@ -8,15 +9,16 @@ import { ListItem, Card, CardItem, Text, Left } from "native-base";
 
 import styles from "./styles";
 
-const Coralcard = ({ coral }) => {
+const Coralcard = ({ coral, navigation }) => {
+  const handlePress = () =>
+    navigation.navigate("DetailScreen", {
+      coralID: coral.id,
+      coralName: coral.name
+    });
   return (
     <ImageBackground source={{ uri: coral.image }} style={styles.background}>
       <View style={styles.overlay} />
-      <ListItem
-        button
-        onPress={() => console.log("test")}
-        style={styles.listitem}
-      >
+      <ListItem button onPress={handlePress} style={styles.listitem}>
         <Card style={styles.transparent}>
           <CardItem style={styles.transparent}>
             <Left>
@@ -32,4 +34,8 @@ const Coralcard = ({ coral }) => {
   );
 };
 
-export default observer(Coralcard);
+// cart.navigationOptions = {
+//   title: "Cart"
+// };
+
+export default withNavigation(Coralcard);

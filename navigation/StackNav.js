@@ -9,7 +9,9 @@ import Profile from "../components/Profile";
 const StackNav = createStackNavigator(
   {
     ListScreen: CoralList,
-    Profile: Profile
+    Profile: Profile,
+    TypeScreen: CoralType,
+    DetailScreen: CoraleDetail
   },
   {
     initialRouteName: "ListScreen",
