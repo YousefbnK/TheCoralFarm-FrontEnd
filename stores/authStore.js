@@ -2,7 +2,6 @@ import { decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
-import { withNavigation } from "react-navigation";
 
 class AuthStore {
   user = null;
@@ -74,4 +73,4 @@ decorate(AuthStore, {
 
 const authStore = new AuthStore();
 authStore.checkForToken();
-export default withNavigation(authStore);
+export default authStore;

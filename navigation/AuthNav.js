@@ -2,8 +2,8 @@ import { createStackNavigator } from "react-navigation-stack";
 
 // Components
 
-import LoginScreen from "../components/Login";
-import Register from "../components/Register";
+import LoginScreen from "../components/Authentication/Login";
+import Register from "../components/Authentication/Register";
 
 const AuthNav = createStackNavigator(
   {

@@ -1,7 +1,7 @@
 import { createStackNavigator } from "react-navigation-stack";
 
 // Components
-import CoralList from "../components/List";
+import CoralList from "../components/CoralList";
 import Profile from "../components/Profile";
 
 // import CoralType from "../components/type";
