@@ -2,17 +2,17 @@ const coralstype = [
   {
     id: 1,
     name: "Acropora",
-    image: require("../assets/Acropora.PNG")
+    image: "https://picsum.photos/200"
   },
   {
     id: 2,
     name: "LBS",
-    image: "../assets/LBS.PNG"
+    image: "https://picsum.photos/200"
   },
   {
     id: 3,
     name: "Zoantheds",
-    image: "../assets/Zoantheds.PNG"
+    image: "https://picsum.photos/200"
   }
 ];
 
