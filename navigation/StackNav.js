@@ -4,10 +4,12 @@ import { createStackNavigator } from "react-navigation-stack";
 import CoralList from "../components/List";
 // import ProfileScreen from "../components/Profile";
 
+import CoralType from "../components/type";
+
 const StackNav = createStackNavigator(
   {
-    ListScreen: CoralList
-    // Profile: ProfileScreen
+    ListScreen: CoralList,
+    TypeScreen: CoralType
   },
   {
     initialRouteName: "ListScreen",
