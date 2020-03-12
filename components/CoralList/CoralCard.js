@@ -13,7 +13,8 @@ const Coralcard = ({ coral, navigation }) => {
   const handlePress = () =>
     navigation.navigate("DetailScreen", {
       coralID: coral.id,
-      coralName: coral.name
+      coralName: coral.name,
+      coralPrice: coral.price
     });
   return (
     <ImageBackground source={{ uri: coral.image }} style={styles.background}>
