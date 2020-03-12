@@ -5,20 +5,18 @@ import { Icon, Button } from "native-base";
 
 // Stores
 
-const CartButton = () => {
-  //   const handlePress = () => navigation.navigate("CartScreen");
+const CartButton = ({ navigation }) => {
+  const handlePress = () => navigation.navigate("CartScreen");
 
   return (
-    <Button transparent>
+    <Button onPress={handlePress} transparent>
       <Icon
         name="shopping-cart"
         type="FontAwesome5"
         style={{ color: "black" }}
+        onPress={handlePress}
       />
     </Button>
-    //   ) : (
-    // <LoginButton />
-    //   );
   );
 };
 

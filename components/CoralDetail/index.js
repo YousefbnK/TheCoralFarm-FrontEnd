@@ -30,15 +30,21 @@ import cartStore from "../../stores/CartStore";
 
 class CoralDetail extends Component {
   state = {
-    coral: "",
+    coral: this.props.navigation.getParam("coralName"),
     quantity: 1
   };
 
   changeCoral = value => this.setState({ coral: value });
+  //  i dont think we need this at this point
 
-  changeQuantity = value => this.setState({ quantity: value });
+  changeQuantity = value => {
+    this.setState({ quantity: value });
+  };
 
-  handleAdd = () => cartStore.addItemToCart(this.state);
+  handleAdd = () => {
+    cartStore.addItemToCart(this.state);
+    console.log("items: ", cartStore.items);
+  };
 
   render() {
     const coralID = this.props.navigation.getParam("coralID");
@@ -61,7 +67,7 @@ class CoralDetail extends Component {
 
             <CardItem>
               <Body>
-                <Text>{coral.name}</Text>
+                <Text>write somthing here </Text>
               </Body>
             </CardItem>
 
@@ -91,5 +97,6 @@ CoralDetail.navigationOptions = ({ navigation }) => ({
   title: navigation.getParam("coffeeshopName"),
   headerRight: <CartButton />
 });
+//  check this later
 
 export default CoralDetail;
