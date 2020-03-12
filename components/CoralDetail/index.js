@@ -31,6 +31,7 @@ import cartStore from "../../stores/CartStore";
 class CoralDetail extends Component {
   state = {
     coral: this.props.navigation.getParam("coralName"),
+    price: this.props.navigation.getParam("coralPrice"),
     quantity: 1
   };
 
@@ -39,11 +40,13 @@ class CoralDetail extends Component {
 
   changeQuantity = value => {
     this.setState({ quantity: value });
+    let price = this.props.navigation.getParam("coralPrice");
+    let totalPrice = price * this.state.quantity;
+    this.setState({ price: totalPrice });
   };
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
-    console.log("items: ", cartStore.items);
   };
 
   render() {
@@ -57,7 +60,7 @@ class CoralDetail extends Component {
             <CardItem>
               <Left>
                 <Text style={styles.text}>{coral.name}</Text>
-                <Text note>{coral.name}</Text>
+                <Text note> {coral.price} KD</Text>
               </Left>
               <Body />
               <Right>
@@ -67,7 +70,7 @@ class CoralDetail extends Component {
 
             <CardItem>
               <Body>
-                <Text>write somthing here </Text>
+                <Text>total price : {this.state.price} KD </Text>
               </Body>
             </CardItem>
 

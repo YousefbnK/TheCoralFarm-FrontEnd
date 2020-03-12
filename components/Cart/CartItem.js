@@ -11,13 +11,13 @@ const CartItem = ({ item }) => {
   return (
     <ListItem style={styles.listStyle}>
       <Left>
-        <Text style={styles.drink}> {item.drink} </Text>
-        <Text note style={styles.option}>
-          {item.coral}
-        </Text>
+        <Text style={styles.drink}> {item.coral} </Text>
       </Left>
       <Body>
         <Text style={styles.quantity}>{item.quantity}</Text>
+        <Text note style={styles.option}>
+          {item.price} KD
+        </Text>
       </Body>
       <Right>
         <Button transparent onPress={() => cartStore.removeItemFromCart(item)}>
