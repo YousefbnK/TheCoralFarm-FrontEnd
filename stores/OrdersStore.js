@@ -5,7 +5,7 @@ import { instance } from "./instance";
 import corals from "../data";
 
 class OrderStore {
-  ordersList = [];
+  ordersList = [corals];
   loading = true;
 
   // fetchOrders = async () => {
@@ -25,12 +25,13 @@ class OrderStore {
   // fetchCoraltype = () => (this.coralType = coralstype);
 }
 
-decorate(CoralStore, {
+decorate(OrderStore, {
   coralList: observable,
   loading: observable
 });
 
 const orderStore = new OrderStore();
-orderStore.fetchcorals();
+console.log("Data", orderStore.ordersList);
+orderStore.fetchOrders();
 
 export default orderStore;

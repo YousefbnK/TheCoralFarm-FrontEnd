@@ -10,7 +10,7 @@ import Coralcard from "./CoralCard";
 import CartButton from "../Buttons/CartButton";
 import ProfileButton from "../Buttons/ProfileButton";
 
-// // Stores
+// Stores
 import coralStore from "../../stores/coralStore";
 
 class CoralList extends Component {
