@@ -13,7 +13,7 @@ const CartItem = ({ item }) => {
       <Left>
         <Text style={styles.drink}> {item.drink} </Text>
         <Text note style={styles.option}>
-          {item.option}
+          {item.coral}
         </Text>
       </Left>
       <Body>

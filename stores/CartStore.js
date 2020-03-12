@@ -18,16 +18,16 @@ class CartStore {
     alert("Thank you for shopping Corals from The Coral Farm");
   };
 
-  //   get quantity() {
-  //     let quantity = 0;
-  //     this.items.forEach(item => (quantity += item.quantity));
-  //     return quantity;
-  //   }
+  get quantity() {
+    let quantity = 0;
+    this.items.forEach(item => (quantity += item.quantity));
+    return quantity;
+  }
 }
 
 decorate(CartStore, {
-  items: observable
-  //   quantity: computed
+  items: observable,
+  quantity: computed
 });
 
 const cartStore = new CartStore();
