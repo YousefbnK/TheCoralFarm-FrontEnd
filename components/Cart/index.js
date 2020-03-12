@@ -25,8 +25,8 @@ const CoralCart = () => {
   );
 };
 
-// CoffeeCart.navigationOptions = {
-//   title: "Cart"
-// };
+CoralCart.navigationOptions = {
+  title: "Cart"
+};
 
 export default observer(CoralCart);
