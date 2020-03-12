@@ -1,32 +1,23 @@
-import React, { Component } from "react";
-import {
-  Container,
-  Header,
-  Content,
-  Card,
-  CardItem,
-  Body,
-  Text
-} from "native-base";
+import React from "react";
+import { Header, Content, Card, CardItem, Body, Text, Left } from "native-base";
+import styles from "./styles";
 
-class OrderCard extends Component {
-  render() {
-    return (
-      <Container>
-        <Header />
-        <Content>
-          <Card>
-            <CardItem>
-              <Body>
+const OrderCard = ({ order }) => {
+  return (
+    <Header>
+      <Content>
+        <Card>
+          <CardItem>
+            <Body>
+              <Left>
                 <Text style={styles.text}>{order.name}</Text>
-                <Text note style={styles.text}>
-                  {order.price}
-                </Text>
-              </Body>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
-    );
-  }
-}
+              </Left>
+            </Body>
+          </CardItem>
+        </Card>
+      </Content>
+    </Header>
+  );
+};
+
+export default OrderCard;

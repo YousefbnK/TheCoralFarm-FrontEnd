@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   text: {
-    color: "white",
+    color: "black",
     fontSize: 18,
     fontWeight: "bold",
     opacity: 1
