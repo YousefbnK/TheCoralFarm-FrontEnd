@@ -4,10 +4,11 @@ import { withNavigation } from "react-navigation";
 import { Icon, Button } from "native-base";
 
 // Stores
-// import authStore from "../../stores/authStore";
+import authStore from "../../stores/authStore";
 
 const CartButton = ({ navigation }) => {
-  const handlePress = () => navigation.navigate("CartScreen");
+  const handlePress = () =>
+    authStore.user ? navigation.navigate("CartScreen") : alert("Please Login");
 
   return (
     <Button onPress={handlePress} transparent>

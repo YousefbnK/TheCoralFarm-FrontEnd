@@ -43,7 +43,7 @@ class AuthStore {
     }
   };
 
-  logout = async () => {
+  logout = async navigation => {
     await this.setUser();
   };
 
