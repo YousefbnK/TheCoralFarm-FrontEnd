@@ -2,14 +2,15 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 
 //Components
 import Profile from "../components/Profile";
-import CoralList from "../components/List";
-import CoralDetail from "../components/CoralDetail";
+
+//Navs
+
+import CoralList from "../components/CoralList";
 
 const DrawerNav = createDrawerNavigator(
   {
     ListScreen: CoralList,
-    Profile: Profile,
-    DetailScreen: CoralDetail
+    Profile: Profile
   },
   {
     initialRouteName: "Profile",

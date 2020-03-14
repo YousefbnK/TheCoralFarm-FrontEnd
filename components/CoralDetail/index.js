@@ -27,6 +27,7 @@ import CartButton from "../Buttons/CartButton";
 // // Stores
 import coralStore from "../../stores/coralStore";
 import cartStore from "../../stores/CartStore";
+import authStore from "../../stores/authStore";
 
 class CoralDetail extends Component {
   state = {

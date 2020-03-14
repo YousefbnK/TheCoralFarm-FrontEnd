@@ -1,19 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-// NativeBase Components
-import {
-  Container,
-  Content,
-  Card,
-  CardItem,
-  Body,
-  Header,
-  List,
-  Text,
-  Thumbnail,
-  Button
-} from "native-base";
+//Styles
+import { Text, View, Image, TouchableOpacity } from "react-native";
+import styles from "./styles";
 
 // Stores
 import authStore from "../../stores/authStore";
@@ -23,19 +13,39 @@ const Profile = ({ navigation }) => {
     authStore.user
       ? navigation.navigate("Orders")
       : navigation.navigate("Login");
+
+  const handleLogout = () => {
+    authStore.logout();
+    navigation.navigate("ListScreen");
+  };
   return (
-    <>
-      <Content>
-        <Button success onPress={handlePress}>
-          <Text>Previous Orders</Text>
-        </Button>
-        {authStore.user && (
-          <Button danger onPress={authStore.logout}>
-            <Text>Logout</Text>
-          </Button>
-        )}
-      </Content>
-    </>
+    <View style={styles.container}>
+      <View style={styles.header}></View>
+      <Image
+        style={styles.avatar}
+        source={{ uri: "https://picsum.photos/200" }}
+      />
+      <View style={styles.body}>
+        <View style={styles.bodyContent}>
+          <>
+            <Text style={styles.name}>Test</Text>
+            <Text style={styles.info}>What the hell !!</Text>
+            <Text style={styles.description}> Whyyyy !!</Text>
+          </>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={handlePress}
+          >
+            <Text>Previous Orders</Text>
+          </TouchableOpacity>
+          {authStore.user && (
+            <TouchableOpacity style={styles.logout} onPress={handleLogout}>
+              <Text>Log out</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      </View>
+    </View>
   );
 };
 export default observer(Profile);
