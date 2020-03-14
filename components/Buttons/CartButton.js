@@ -4,6 +4,7 @@ import { withNavigation } from "react-navigation";
 import { Icon, Button } from "native-base";
 
 // Stores
+// import authStore from "../../stores/authStore";
 
 const CartButton = ({ navigation }) => {
   const handlePress = () => navigation.navigate("CartScreen");

@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 
 // NativeBase Components
 import {
@@ -18,18 +19,23 @@ import {
 import authStore from "../../stores/authStore";
 
 const Profile = ({ navigation }) => {
-  handlePress = () => navigation.navigate("Orders");
+  const handlePress = () =>
+    authStore.user
+      ? navigation.navigate("Orders")
+      : navigation.navigate("Login");
   return (
     <>
       <Content>
         <Button success onPress={handlePress}>
           <Text>Previous Orders</Text>
         </Button>
-        <Button danger onPress={authStore.logout}>
-          <Text>Logout</Text>
-        </Button>
+        {authStore.user && (
+          <Button danger onPress={authStore.logout}>
+            <Text>Logout</Text>
+          </Button>
+        )}
       </Content>
     </>
   );
 };
-export default Profile;
+export default observer(Profile);

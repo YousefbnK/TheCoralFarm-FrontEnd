@@ -12,6 +12,7 @@ import ProfileButton from "../Buttons/ProfileButton";
 
 // Stores
 import coralStore from "../../stores/coralStore";
+import authStore from "../../stores/authStore";
 
 class CoralList extends Component {
   coraltems = coralStore.coralList.map(item => (
@@ -29,8 +30,7 @@ class CoralList extends Component {
 
 CoralList.navigationOptions = {
   title: "Coral List",
-  headerRight: <CartButton />,
+  headerRight: authStore.user && <CartButton />,
   headerLeft: <ProfileButton />
 };
-
 export default observer(CoralList);

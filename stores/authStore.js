@@ -26,7 +26,6 @@ class AuthStore {
       const res = await instance.post("login/", userData);
       const user = res.data;
       this.setUser(user.access);
-      console.log("Logged in !");
       navigation.navigate("ListScreen");
     } catch (err) {
       console.log("something went wrong logging in");
