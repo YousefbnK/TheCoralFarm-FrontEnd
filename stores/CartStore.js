@@ -15,7 +15,6 @@ class CartStore {
 
   checkoutCart = () => {
     this.items = [];
-    alert("Thank you for shopping Corals from The Coral Farm");
   };
 
   get quantity() {

@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
       <Body>
         <Text style={styles.quantity}>{item.quantity}</Text>
         <Text note style={styles.option}>
-          {item.price} KD
+          {`${item.price} KD`}
         </Text>
       </Body>
       <Right>
