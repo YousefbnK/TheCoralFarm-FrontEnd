@@ -11,14 +11,18 @@ const CartButton = ({ navigation }) => {
     authStore.user ? navigation.navigate("CartScreen") : alert("Please Login");
 
   return (
-    <Button onPress={handlePress} transparent>
-      <Icon
-        name="shopping-cart"
-        type="FontAwesome5"
-        style={{ color: "black" }}
-        onPress={handlePress}
-      />
-    </Button>
+    <>
+      {authStore.user && (
+        <Button onPress={handlePress} transparent>
+          <Icon
+            name="shopping-cart"
+            type="FontAwesome5"
+            style={{ color: "black" }}
+            onPress={handlePress}
+          />
+        </Button>
+      )}
+    </>
   );
 };
 

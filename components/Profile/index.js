@@ -2,8 +2,11 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
+
+// Native Base
+import { Text } from "native-base";
 
 // Stores
 import authStore from "../../stores/authStore";
@@ -18,6 +21,7 @@ const Profile = ({ navigation }) => {
     authStore.logout();
     navigation.navigate("ListScreen");
   };
+  console.log("name", authStore.user.user_id);
   return (
     <View style={styles.container}>
       <View style={styles.header}></View>
@@ -27,11 +31,10 @@ const Profile = ({ navigation }) => {
       />
       <View style={styles.body}>
         <View style={styles.bodyContent}>
-          <>
-            <Text style={styles.name}>Test</Text>
-            <Text style={styles.info}>What the hell !!</Text>
-            <Text style={styles.description}> Whyyyy !!</Text>
-          </>
+          <Text style={styles.name}>{authStore.user.user_id}</Text>
+          {/* <Text style={styles.info}>What the hell !!</Text> */}
+          <Text style={styles.description}> {authStore.user.username}</Text>
+
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={handlePress}

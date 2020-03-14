@@ -6,7 +6,7 @@ import { Content, List } from "native-base";
 import styles from "./styles";
 
 // Component
-import Coralcard from "./CoralCard";
+import CoralCard from "./CoralCard";
 import CartButton from "../Buttons/CartButton";
 import ProfileButton from "../Buttons/ProfileButton";
 
@@ -15,14 +15,13 @@ import coralStore from "../../stores/coralStore";
 import authStore from "../../stores/authStore";
 
 class CoralList extends Component {
-  coraltems = coralStore.coralList.map(item => (
-    <Coralcard coral={item} key={item.name} />
-  ));
-
   render() {
+    const coraltems = coralStore.coralList.map(item => (
+      <CoralCard coral={item} key={item.name} />
+    ));
     return (
       <Content style={styles.header}>
-        <List>{this.coraltems}</List>
+        <List>{coraltems}</List>
       </Content>
     );
   }
@@ -30,7 +29,7 @@ class CoralList extends Component {
 
 CoralList.navigationOptions = {
   title: "Coral List",
-  headerRight: authStore.user && <CartButton />,
+  headerRight: <CartButton />,
   headerLeft: <ProfileButton />
 };
 export default observer(CoralList);
