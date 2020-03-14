@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   bodyContent: {
-    flex: 1,
     alignItems: "center",
     padding: 30
   },
