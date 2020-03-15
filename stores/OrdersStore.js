@@ -5,7 +5,7 @@ import { instance } from "./instance";
 import corals from "../data";
 
 class OrderStore {
-  ordersList = [corals];
+  ordersList = corals;
   loading = true;
 
   // fetchOrders = async () => {

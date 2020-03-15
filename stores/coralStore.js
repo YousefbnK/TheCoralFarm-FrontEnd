@@ -29,7 +29,6 @@ class CoralStore {
 
 decorate(CoralStore, {
   coralList: observable,
-  coralType: observable,
   loading: observable
 });
 

@@ -9,7 +9,7 @@ import { ListItem, Card, CardItem, Text, Left } from "native-base";
 
 import styles from "./styles";
 
-const Coralcard = ({ coral, navigation }) => {
+const CoralCard = ({ coral, navigation }) => {
   const handlePress = () =>
     navigation.navigate("DetailScreen", {
       coralID: coral.id,
@@ -39,4 +39,4 @@ const Coralcard = ({ coral, navigation }) => {
 //   title: "Cart"
 // };
 
-export default withNavigation(Coralcard);
+export default withNavigation(CoralCard);

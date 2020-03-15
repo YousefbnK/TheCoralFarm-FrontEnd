@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import NumericInput from "react-native-numeric-input";
 
 // NativeBase Components
-import { Alert } from "react-native";
+
 import {
   Body,
   Button,
@@ -26,8 +26,7 @@ import CartButton from "../Buttons/CartButton";
 
 // // Stores
 import coralStore from "../../stores/coralStore";
-import cartStore from "../../stores/CartStore";
-import authStore from "../../stores/authStore";
+import cartStore from "../../stores/cartStore";
 
 class CoralDetail extends Component {
   state = {
