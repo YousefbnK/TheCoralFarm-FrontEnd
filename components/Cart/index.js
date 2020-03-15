@@ -8,7 +8,7 @@ import { Text, List, Button } from "native-base";
 import CartItem from "./CartItem";
 
 // Stores
-import cartStore from "../../stores/CartStore";
+import cartStore from "../../stores/cartStore";
 import authStore from "../../stores/authStore";
 
 const CoralCart = () => {

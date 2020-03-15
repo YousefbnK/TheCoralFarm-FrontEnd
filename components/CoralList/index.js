@@ -12,7 +12,6 @@ import ProfileButton from "../Buttons/ProfileButton";
 
 // Stores
 import coralStore from "../../stores/coralStore";
-import authStore from "../../stores/authStore";
 
 class CoralList extends Component {
   render() {
