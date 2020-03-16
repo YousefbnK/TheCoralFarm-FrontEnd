@@ -4,17 +4,19 @@ import { AsyncStorage } from "react-native";
 class CartStore {
   items = [];
 
+  //  this is being called on handleAdd.CoralDetail  //
   asyncStorig = async () => {
     let myJSON = JSON.stringify(this.items);
     console.log("my data: ", myJSON);
     await AsyncStorage.setItem("myData", myJSON);
   };
 
+  //  this is being called as soon as the app starts //
   fetchAsyncStorig = async () => {
     try {
       let newItems = await AsyncStorage.getItem("myData");
       newItems = JSON.parse(newItems);
-      this.items.push(newItems);
+      this.items = newItems;
     } catch (err) {
       console.log(err);
     }
