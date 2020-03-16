@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
 
 import NumericInput from "react-native-numeric-input";
 
@@ -27,6 +28,7 @@ import CartButton from "../Buttons/CartButton";
 // // Stores
 import coralStore from "../../stores/coralStore";
 import cartStore from "../../stores/cartStore";
+import { observe } from "mobx";
 
 class CoralDetail extends Component {
   state = {
@@ -44,7 +46,7 @@ class CoralDetail extends Component {
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
-    cartStore.asyncStorig();
+    cartStore.asyncStorage();
     this.props.navigation.navigate("CartScreen");
     //  we can remove navigation later  //
   };
@@ -102,4 +104,4 @@ CoralDetail.navigationOptions = ({ navigation }) => ({
 });
 //  check this later
 
-export default CoralDetail;
+export default observer(CoralDetail);

@@ -5,25 +5,30 @@ class CartStore {
   items = [];
 
   //  this is being called on handleAdd.CoralDetail  //
-  asyncStorig = async () => {
+  asyncStorage = async () => {
     let myJSON = JSON.stringify(this.items);
     console.log("my data: ", myJSON);
     await AsyncStorage.setItem("myData", myJSON);
   };
 
   //  this is being called as soon as the app starts //
-  fetchAsyncStorig = async () => {
-    try {
-      let newItems = await AsyncStorage.getItem("myData");
-      newItems = JSON.parse(newItems);
-      this.items = newItems;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //This is causing an error so i moved it to App.js//
+  // fetchAsyncStorage = async () => {
+  //   try {
+  //     let newItems = await AsyncStorage.getItem("myData");
+  //     newItems = JSON.parse(newItems);
+  //     this.items = newItems;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   addItemToCart = item => {
-    const itemExist = this.items.find(_item => _item.coral === item.coral);
+    console.log("Is it", item);
+    console.log("lala", this.items);
+    const itemExist = this.items.find(
+      _item => _item.drink === item.drink && _item.option === item.option
+    );
     if (itemExist) itemExist.quantity += item.quantity;
     else this.items.push(item);
   };
@@ -49,6 +54,6 @@ decorate(CartStore, {
 });
 
 const cartStore = new CartStore();
-cartStore.fetchAsyncStorig();
+// cartStore.fetchAsyncStorage();
 
 export default cartStore;
