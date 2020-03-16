@@ -28,7 +28,6 @@ import CartButton from "../Buttons/CartButton";
 // // Stores
 import coralStore from "../../stores/coralStore";
 import cartStore from "../../stores/cartStore";
-import { observe } from "mobx";
 
 class CoralDetail extends Component {
   state = {
@@ -82,6 +81,7 @@ class CoralDetail extends Component {
                   value={this.state.value}
                   onChange={this.changeQuantity}
                   initValue={1}
+                  minValue={1}
                 />
               </Body>
 

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Text, List, Button } from "native-base";
+import { Text, List, Button, Left, Right, Icon } from "native-base";
+
+// Style
+import styles from "./styles";
 
 // Component
 import CartItem from "./CartItem";
@@ -11,12 +14,8 @@ import CartItem from "./CartItem";
 import cartStore from "../../stores/cartStore";
 import authStore from "../../stores/authStore";
 
-const CoralCart = () => {
-  const cartItems = cartStore.items.map(item => (
-    <CartItem item={item} key={`${item.id}`} />
-  ));
-
-  const checkout = () => {
+class CoralCart extends Component {
+  checkout = () => {
     if (authStore.user) {
       cartStore.checkoutCart();
       alert("Thank you for shopping Corals from The Coral Farm");
@@ -24,16 +23,20 @@ const CoralCart = () => {
       alert("Please log in");
     }
   };
-
-  return (
-    <List>
-      {cartItems}
-      <Button full danger onPress={checkout}>
-        <Text>Checkout</Text>
-      </Button>
-    </List>
-  );
-};
+  render() {
+    const cartItems = cartStore.items.map(item => (
+      <CartItem item={item} key={`${item.id}`} />
+    ));
+    return (
+      <List>
+        {cartItems}
+        <Button full danger onPress={checkout}>
+          <Text>Checkout</Text>
+        </Button>
+      </List>
+    );
+  }
+}
 
 CoralCart.navigationOptions = {
   title: "Cart"

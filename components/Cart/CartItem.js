@@ -3,29 +3,45 @@ import React from "react";
 // NativeBase Components
 import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
+import NumericInput from "react-native-numeric-input";
+
 // Style
 import styles from "./styles";
+
+//Components
+import CoralDetail from "../CoralDetail/";
+
+//Stores
 import cartStore from "../../stores/cartStore";
+import { observer } from "mobx-react";
 
 const CartItem = ({ item }) => {
+  const changeQuantity = value => {
+    item.quantity = value;
+    let price = value * item.price;
+  };
   return (
     <ListItem style={styles.listStyle}>
       <Left>
         <Text style={styles.drink}> {item.coral} </Text>
       </Left>
+      <NumericInput
+        // value={item.quantity}
+        onChange={changeQuantity}
+        initValue={item.quantity}
+        minValue={1}
+      />
+      <Right></Right>
       <Body>
-        <Text style={styles.quantity}>{item.quantity}</Text>
         <Text note style={styles.option}>
           {`${item.price} KD`}
         </Text>
       </Body>
-      <Right>
-        <Button transparent onPress={() => cartStore.removeItemFromCart(item)}>
-          <Icon name="trash" style={styles.removeItem} />
-        </Button>
-      </Right>
+      <Button transparent onPress={() => cartStore.removeItemFromCart(item)}>
+        <Icon name="trash" style={styles.removeItem} />
+      </Button>
     </ListItem>
   );
 };
 
-export default CartItem;
+export default observer(CartItem);
