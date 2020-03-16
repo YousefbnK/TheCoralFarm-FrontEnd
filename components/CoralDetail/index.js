@@ -35,9 +35,6 @@ class CoralDetail extends Component {
     quantity: 1
   };
 
-  changeCoral = value => this.setState({ coral: value });
-  //  i dont think we need this at this point
-
   changeQuantity = value => {
     this.setState({ quantity: value });
     let price = this.props.navigation.getParam("coralPrice");
@@ -47,6 +44,9 @@ class CoralDetail extends Component {
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
+    cartStore.asyncStorig();
+    this.props.navigation.navigate("CartScreen");
+    //  we can remove navigation later  //
   };
 
   render() {

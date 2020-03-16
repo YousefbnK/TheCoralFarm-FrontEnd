@@ -54,7 +54,6 @@ class AuthStore {
       const currentTime = Date.now() / 1000;
       // Decode token and get user info
       const user = jwt_decode(token);
-
       // Check token expiration
       if (user.exp >= currentTime) {
         // Set auth token header
