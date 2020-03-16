@@ -31,7 +31,6 @@ decorate(OrderStore, {
 });
 
 const orderStore = new OrderStore();
-console.log("Data", orderStore.ordersList);
 orderStore.fetchOrders();
 
 export default orderStore;
