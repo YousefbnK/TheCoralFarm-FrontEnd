@@ -8,7 +8,7 @@ import { Content, List, Text } from "native-base";
 import OrderCard from "./OrderCard";
 
 //Stores
-import orderStore from "../../stores/ordersStore";
+import orderStore from "../../stores/OrdersStore";
 
 class OrderList extends Component {
   orders = orderStore.ordersList.map(order => (
