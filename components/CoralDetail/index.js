@@ -33,6 +33,7 @@ class CoralDetail extends Component {
   state = {
     coral: this.props.navigation.getParam("coralName"),
     price: this.props.navigation.getParam("coralPrice"),
+    total: this.props.navigation.getParam("coralPrice"),
     quantity: 1
   };
 
@@ -40,12 +41,13 @@ class CoralDetail extends Component {
     this.setState({ quantity: value });
     let price = this.props.navigation.getParam("coralPrice");
     let totalPrice = price * this.state.quantity;
-    this.setState({ price: totalPrice });
+    this.setState({ total: totalPrice });
   };
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
     cartStore.asyncStorage();
+    this.setState({ quantity: 1, total: this.state.price });
     this.props.navigation.navigate("CartScreen");
     //  we can remove navigation later  //
   };
@@ -71,7 +73,7 @@ class CoralDetail extends Component {
 
             <CardItem>
               <Body>
-                <Text>total price : {this.state.price} KD </Text>
+                <Text>total price : {this.state.total} KD </Text>
               </Body>
             </CardItem>
 

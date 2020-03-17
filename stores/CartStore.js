@@ -11,8 +11,10 @@ class CartStore {
 
   addItemToCart = item => {
     const itemExist = this.items.find(_item => _item.coral === item.coral);
-    if (itemExist) itemExist.quantity += item.quantity;
-    else this.items.push(item);
+    if (itemExist) {
+      itemExist.quantity += item.quantity;
+      itemExist.total += item.total;
+    } else this.items.push(item);
   };
 
   removeItemFromCart = async item => {
