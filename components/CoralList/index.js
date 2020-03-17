@@ -8,15 +8,17 @@ import styles from "./styles";
 // Component
 import CoralCard from "./CoralCard";
 import CartButton from "../Buttons/CartButton";
-import ProfileButton from "../Buttons/ProfileButton";
+// import ProfileButton from "../Buttons/ProfileButton";
 
 // Stores
 import coralStore from "../../stores/coralStore";
+import Example from "../Modal/Example";
+import ProfileButton from "../Buttons/ProfileButton";
 
 class CoralList extends Component {
   render() {
     const coraltems = coralStore.coralList.map(item => (
-      <CoralCard coral={item} key={item.name} />
+      <CoralCard coral={item} key={item.id} />
     ));
     return (
       <Content style={styles.header}>
