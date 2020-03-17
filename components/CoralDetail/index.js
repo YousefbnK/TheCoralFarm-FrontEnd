@@ -28,6 +28,7 @@ import CartButton from "../Buttons/CartButton";
 // // Stores
 import coralStore from "../../stores/coralStore";
 import cartStore from "../../stores/cartStore";
+import authStore from "../../stores/authStore";
 
 class CoralDetail extends Component {
   state = {
@@ -49,6 +50,7 @@ class CoralDetail extends Component {
     cartStore.asyncStorage();
     this.setState({ quantity: 1, total: this.state.price });
     this.props.navigation.navigate("CartScreen");
+
     //  we can remove navigation later  //
   };
 

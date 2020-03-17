@@ -15,6 +15,7 @@ class CartStore {
       itemExist.quantity += item.quantity;
       itemExist.total += item.total;
     } else this.items.push(item);
+    console.log("Items", this.items);
   };
 
   removeItemFromCart = async item => {
@@ -23,7 +24,6 @@ class CartStore {
   };
 
   checkoutCart = () => {
-    console.log("Hello", this.items);
     this.items = [];
   };
 
