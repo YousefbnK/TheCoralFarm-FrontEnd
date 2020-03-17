@@ -9,7 +9,6 @@ import NumericInput from "react-native-numeric-input";
 import styles from "./styles";
 
 //Components
-import CoralDetail from "../CoralDetail/";
 
 //Stores
 import cartStore from "../../stores/cartStore";
@@ -18,7 +17,7 @@ import { observer } from "mobx-react";
 const CartItem = ({ item }) => {
   const changeQuantity = value => {
     item.quantity = value;
-    let price = value * item.price;
+    item.total = value * item.price;
   };
   return (
     <ListItem style={styles.listStyle}>
@@ -34,7 +33,7 @@ const CartItem = ({ item }) => {
       <Right></Right>
       <Body>
         <Text note style={styles.option}>
-          {`${item.price} KD`}
+          {`${item.total} KD`}
         </Text>
       </Body>
       <Button transparent onPress={() => cartStore.removeItemFromCart(item)}>

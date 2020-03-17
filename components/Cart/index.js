@@ -30,7 +30,7 @@ class CoralCart extends Component {
     return (
       <List>
         {cartItems}
-        <Button full danger onPress={checkout}>
+        <Button full danger onPress={this.checkout}>
           <Text>Checkout</Text>
         </Button>
       </List>
