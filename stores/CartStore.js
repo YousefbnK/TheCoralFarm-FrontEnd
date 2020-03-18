@@ -9,6 +9,16 @@ class CartStore {
     await AsyncStorage.setItem("myData", myJSON);
   };
 
+  fetchCart = async () => {
+    try {
+      let newItems = await AsyncStorage.getItem("myData");
+      newItems = JSON.parse(newItems);
+      cartStore.items = newItems;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   addItemToCart = item => {
     const itemExist = this.items.find(_item => _item.coral === item.coral);
     if (itemExist) {
