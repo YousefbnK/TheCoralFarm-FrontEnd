@@ -1,30 +1,58 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+// import { View, Text } from "react-native";
 import styles from "./styles";
-import { Icon, Button } from "native-base";
+import { Button, Text } from "native-base";
 
 import Modal, { ModalTitle, ModalContent } from "react-native-modals";
 import { observer } from "mobx-react";
 
 import Login from "../Authentication/Login";
-// import authStore from "../../stores/authStore";
+import Register from "../Authentication/Register";
+import authStore from "../../stores/authStore";
 
 class ExampleModal extends Component {
+  state = {
+    login: true,
+    status: this.props.state
+  };
+
+  register = () => {
+    this.setState({ login: false });
+  };
+
+  login = () => {
+    this.setState({ login: true });
+  };
+
+  handleClose = () => {
+    this.setState({ status: false });
+  };
+
   render() {
+    authStore.user && this.handleClose;
     return (
-      <View style={{ flex: 1 }}>
-        <View style={styles.container}>
-          <Button onPress={this.props.handleOpen} transparent>
-            <Icon name="profile" type="AntDesign" style={{ color: "black" }} />
-          </Button>
-        </View>
+      <>
+        <Button
+          full
+          danger
+          onPress={() => {
+            this.setState({ status: true });
+          }}
+        >
+          <Text>Checkout</Text>
+        </Button>
 
         <Modal.BottomModal
-          visible={this.state.modalStatus}
-          onTouchOutside={() => this.setState({ modalStatus: false })}
+          visible={this.state.status}
+          onTouchOutside={() => this.setState({ status: false })}
           height={0.75}
           width={1}
-          modalTitle={<ModalTitle title="Log in" hasTitleBar />}
+          modalTitle={
+            <ModalTitle
+              title={this.state.login ? "Log in" : "Register"}
+              hasTitleBar
+            />
+          }
         >
           <ModalContent
             style={{
@@ -32,10 +60,14 @@ class ExampleModal extends Component {
               backgroundColor: "fff"
             }}
           >
-            <Login />
+            {this.state.login ? (
+              <Login register={this.register} />
+            ) : (
+              <Register login={this.login} />
+            )}
           </ModalContent>
         </Modal.BottomModal>
-      </View>
+      </>
     );
   }
 }

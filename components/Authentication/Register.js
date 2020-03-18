@@ -16,7 +16,9 @@ class Register extends Component {
     password: ""
   };
 
-  submitSignup = () => authStore.register(this.state, this.props.navigation);
+  submitSignup = () => authStore.register(this.state);
+
+  handlePress = () => this.props.login();
 
   render() {
     return (
@@ -38,10 +40,7 @@ class Register extends Component {
         <TouchableOpacity style={styles.authButton} onPress={this.submitSignup}>
           <Text style={styles.authButtonText}>Register</Text>
         </TouchableOpacity>
-        <Text
-          style={styles.authOther}
-          onPress={() => this.props.navigation.navigate("Login")}
-        >
+        <Text style={styles.authOther} onPress={this.handlePress}>
           Click here to log in!
         </Text>
       </View>
