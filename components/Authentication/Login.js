@@ -19,12 +19,10 @@ class Login extends Component {
   };
 
   submitLogin = () => {
-    authStore.login(this.state, this.props.navigation);
+    authStore.login(this.state);
   };
 
-  // handlePress = () => {
-  //   <Register />;
-  // };
+  handlePress = () => this.props.register();
 
   render() {
     return (
@@ -46,9 +44,9 @@ class Login extends Component {
         <TouchableOpacity style={styles.authButton} onPress={this.submitLogin}>
           <Text style={styles.authButtonText}>Log in</Text>
         </TouchableOpacity>
-        <Text style={styles.authOther} onPress={this.handlePress}>
-          Click here to Register!
-        </Text>
+        <TouchableOpacity onPress={this.handlePress}>
+          <Text style={styles.authOther}>Click here to Register!</Text>
+        </TouchableOpacity>
       </View>
     );
   }
