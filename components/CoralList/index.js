@@ -17,7 +17,7 @@ import ProfileButton from "../Buttons/ProfileButton";
 
 class CoralList extends Component {
   render() {
-    const coraltems = coralStore.coralList.map(item => (
+    const coraltems = coralStore.corals.map(item => (
       <CoralCard coral={item} key={item.id} />
     ));
     return (
@@ -31,6 +31,6 @@ class CoralList extends Component {
 CoralList.navigationOptions = {
   title: "Coral List",
   headerRight: <CartButton />,
-  headerLeft: <ProfileButton />
+  headerLeft: <Example />
 };
 export default observer(CoralList);
