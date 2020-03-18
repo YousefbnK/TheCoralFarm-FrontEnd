@@ -47,7 +47,7 @@ class CoralDetail extends Component {
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
-    cartStore.asyncStorage();
+    cartStore.saveCart();
     this.setState({ quantity: 1, total: this.state.price });
     this.props.navigation.navigate("CartScreen");
 

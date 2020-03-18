@@ -6,7 +6,7 @@ import corals from "../data";
 import coralType from "../typeData";
 
 class CoralStore {
-  coralList = [];
+  corals = [];
   // coralType = [coralType];
   loading = true;
 
@@ -22,13 +22,13 @@ class CoralStore {
   //   }
   // };
 
-  fetchcorals = () => (this.coralList = corals);
+  fetchcorals = () => (this.corals = corals);
 
   // fetchCoraltype = () => (this.coralType = coralstype);
 }
 
 decorate(CoralStore, {
-  coralList: observable,
+  corals: observable,
   loading: observable
 });
 

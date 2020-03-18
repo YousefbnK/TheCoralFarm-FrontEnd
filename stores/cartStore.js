@@ -4,7 +4,7 @@ import { AsyncStorage } from "react-native";
 class CartStore {
   items = [];
   //  this is being called on handleAdd.CoralDetail  //
-  asyncStorage = async () => {
+  saveCart = async () => {
     let myJSON = JSON.stringify(this.items);
     await AsyncStorage.setItem("myData", myJSON);
   };
