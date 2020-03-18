@@ -12,17 +12,17 @@ import CartButton from "../Buttons/CartButton";
 
 // Stores
 import coralStore from "../../stores/coralStore";
-import Example from "../Modal/Example";
+
 import ProfileButton from "../Buttons/ProfileButton";
 
 class CoralList extends Component {
   render() {
-    const coraltems = coralStore.corals.map(item => (
+    coraltems = coralStore.corals.map(item => (
       <CoralCard coral={item} key={item.id} />
     ));
     return (
       <Content style={styles.header}>
-        <List>{coraltems}</List>
+        <List>{this.coraltems}</List>
       </Content>
     );
   }
@@ -31,6 +31,6 @@ class CoralList extends Component {
 CoralList.navigationOptions = {
   title: "Coral List",
   headerRight: <CartButton />,
-  headerLeft: <Example />
+  headerLeft: <ProfileButton />
 };
 export default observer(CoralList);
