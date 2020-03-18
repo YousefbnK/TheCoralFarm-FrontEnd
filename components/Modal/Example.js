@@ -7,32 +7,21 @@ import Modal, { ModalTitle, ModalContent } from "react-native-modals";
 import { observer } from "mobx-react";
 
 import Login from "../Authentication/Login";
-import authStore from "../../stores/authStore";
+// import authStore from "../../stores/authStore";
 
-class Example extends Component {
-  state = {
-    bottomModalAndTitle: false
-  };
-
-  handlePress = () =>
-    authStore.user
-      ? this.props.navigation.navigate("Profile")
-      : this.setState({
-          bottomModalAndTitle: true
-        });
-
+class ExampleModal extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.container}>
-          <Button onPress={this.handlePress} transparent>
+          <Button onPress={this.props.handleOpen} transparent>
             <Icon name="profile" type="AntDesign" style={{ color: "black" }} />
           </Button>
         </View>
 
         <Modal.BottomModal
-          visible={this.state.bottomModalAndTitle}
-          onTouchOutside={() => this.setState({ bottomModalAndTitle: false })}
+          visible={this.state.modalStatus}
+          onTouchOutside={() => this.setState({ modalStatus: false })}
           height={0.75}
           width={1}
           modalTitle={<ModalTitle title="Log in" hasTitleBar />}
@@ -51,4 +40,4 @@ class Example extends Component {
   }
 }
 
-export default observer(Example);
+export default observer(ExampleModal);

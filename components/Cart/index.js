@@ -13,8 +13,20 @@ import CartItem from "./CartItem";
 // Stores
 import cartStore from "../../stores/cartStore";
 import authStore from "../../stores/authStore";
+import Example from "../Modal/Example";
 
 class CoralCart extends Component {
+  state = {
+    modalStatus: false
+  };
+
+  handleClose = () => {
+    this.setState({ modalStatus: false });
+  };
+
+  handleOpen = () => {
+    this.setState({ modalStatus: true });
+  };
   checkout = () => {
     if (authStore.user) {
       cartStore.checkoutCart();
@@ -30,7 +42,21 @@ class CoralCart extends Component {
     return (
       <List>
         {cartItems}
-        <Button full danger onPress={this.checkout}>
+        <Button
+          full
+          danger
+          onPress={() => {
+            if (authStore.user) {
+              this.checkout;
+            } else {
+              <Example
+                handleOpen={this.handleOpen}
+                handleClose={this.handleClose}
+                state={this.state}
+              />;
+            }
+          }}
+        >
           <Text>Checkout</Text>
         </Button>
       </List>

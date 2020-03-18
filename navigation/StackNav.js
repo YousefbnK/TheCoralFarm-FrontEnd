@@ -20,7 +20,7 @@ const StackNav = createStackNavigator(
     Orders: OrderList
   },
   {
-    initialRouteName: "ListScreen",
+    initialRouteName: "CartScreen",
     defaultNavigationOptions: {
       title: "Profile"
     }

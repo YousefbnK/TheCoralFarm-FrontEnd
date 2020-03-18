@@ -7,6 +7,8 @@ import { Text } from "native-base";
 
 import styles from "./styles";
 
+//Components
+
 // Store
 import authStore from "../../stores/authStore";
 
@@ -20,7 +22,10 @@ class Login extends Component {
     authStore.login(this.state, this.props.navigation);
   };
 
-  handlePress = () => this.props.navigation.navigate("Register");
+  // handlePress = () => {
+  //   <Register />;
+  // };
+
   render() {
     return (
       <View style={styles.authContainer}>

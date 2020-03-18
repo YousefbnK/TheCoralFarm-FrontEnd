@@ -21,12 +21,12 @@ class AuthStore {
     }
   };
 
-  login = async (userData, navigation) => {
+  login = async userData => {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
       this.setUser(user.access);
-      navigation.navigate("ListScreen");
+      // navigation.navigate("ListScreen");
     } catch (err) {
       console.log("something went wrong logging in");
     }
@@ -43,7 +43,7 @@ class AuthStore {
     }
   };
 
-  logout = async navigation => {
+  logout = async () => {
     await this.setUser();
   };
 
@@ -70,5 +70,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-authStore.checkForToken();
+// authStore.checkForToken();
+
 export default authStore;
