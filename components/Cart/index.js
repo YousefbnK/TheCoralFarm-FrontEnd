@@ -13,7 +13,7 @@ import CartItem from "./CartItem";
 // Stores
 import cartStore from "../../stores/cartStore";
 import authStore from "../../stores/authStore";
-import ExampleModal from "../Modal/Example";
+import LoginModal from "../Modal/LoginModal";
 
 class CoralCart extends Component {
   state = {
@@ -44,7 +44,7 @@ class CoralCart extends Component {
             <Text>Checkout</Text>
           </Button>
         ) : (
-          <ExampleModal
+          <LoginModal
             handleClose={this.handleClose}
             handleOpen={this.handleOpen}
             state={this.state.modalStatus}

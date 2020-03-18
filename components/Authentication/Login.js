@@ -11,7 +11,6 @@ import styles from "./styles";
 
 // Store
 import authStore from "../../stores/authStore";
-// import ExampleModal from "../Modal/Example";
 
 class Login extends Component {
   state = {

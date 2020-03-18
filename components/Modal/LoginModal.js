@@ -10,7 +10,7 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import authStore from "../../stores/authStore";
 
-class ExampleModal extends Component {
+class LoginModal extends Component {
   state = {
     login: true,
     status: this.props.state
@@ -72,4 +72,4 @@ class ExampleModal extends Component {
   }
 }
 
-export default observer(ExampleModal);
+export default observer(LoginModal);
