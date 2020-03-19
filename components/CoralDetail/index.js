@@ -49,9 +49,6 @@ class CoralDetail extends Component {
     cartStore.addItemToCart(this.state);
     cartStore.saveCart();
     this.setState({ quantity: 1, total: this.state.price });
-    this.props.navigation.navigate("CartScreen");
-
-    //  we can remove navigation later  //
   };
 
   render() {
@@ -64,7 +61,7 @@ class CoralDetail extends Component {
           <Card transparent style={styles.card}>
             <CardItem>
               <Left>
-                <Text style={styles.text}>{coral.name}</Text>
+                <Text>{coral.name}</Text>
                 <Text note> {coral.price} KD</Text>
               </Left>
               <Body />
@@ -103,9 +100,8 @@ class CoralDetail extends Component {
 }
 
 CoralDetail.navigationOptions = ({ navigation }) => ({
-  title: navigation.getParam("coffeeshopName"),
+  title: navigation.getParam("coralName"),
   headerRight: <CartButton />
 });
-//  check this later
 
 export default observer(CoralDetail);
