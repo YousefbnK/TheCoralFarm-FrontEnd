@@ -56,7 +56,7 @@ class CoralDetail extends Component {
 
   render() {
     const coralID = this.props.navigation.getParam("coralID");
-    const coral = coralStore.coralList.find(coral => coralID === coral.id);
+    const coral = coralStore.corals.find(coral => coralID === coral.id);
 
     return (
       <Container>

@@ -25,7 +25,7 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
-      this.setUser(user.access);
+      await this.setUser(user.access);
     } catch (err) {
       console.log("something went wrong logging in");
     }
@@ -44,6 +44,7 @@ class AuthStore {
 
   logout = async () => {
     await this.setUser();
+    AsyncStorage.clear();
   };
 
   checkForToken = async () => {

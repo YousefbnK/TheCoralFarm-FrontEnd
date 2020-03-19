@@ -4,24 +4,25 @@ import { withNavigation } from "react-navigation";
 import { Icon, Button } from "native-base";
 
 // Stores
-import authStore from "../../stores/authStore";
+
+import cartStore from "../../stores/cartStore";
 
 const CartButton = ({ navigation }) => {
   const handlePress = () =>
-    authStore.user ? navigation.navigate("CartScreen") : alert("Please Login");
+    cartStore.items
+      ? navigation.navigate("CartScreen")
+      : alert("Your Cart is empty, please add items");
 
   return (
     <>
-      {authStore.user && (
-        <Button onPress={handlePress} transparent>
-          <Icon
-            name="shopping-cart"
-            type="FontAwesome5"
-            style={{ color: "black" }}
-            onPress={handlePress}
-          />
-        </Button>
-      )}
+      <Button onPress={handlePress} transparent>
+        <Icon
+          name="shopping-cart"
+          type="FontAwesome5"
+          style={{ color: "black" }}
+          onPress={handlePress}
+        />
+      </Button>
     </>
   );
 };
