@@ -20,6 +20,7 @@ class Login extends Component {
 
   submitLogin = () => {
     authStore.login(this.state);
+    this.props.handleClose();
   };
 
   handlePress = () => this.props.register();
