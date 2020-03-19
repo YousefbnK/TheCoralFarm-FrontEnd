@@ -1,7 +1,12 @@
 import { decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
+``;
 import { instance } from "./instance";
+
+import { instance2 } from "./instance2";
+
+//  change instence to instance when using it (to yousef)
 
 class AuthStore {
   user = null;
@@ -11,19 +16,19 @@ class AuthStore {
       // Save token to localStorage
       await AsyncStorage.setItem("myToken", token);
       // Set token to Auth header
-      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+      instance2.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user
       this.user = jwt_decode(token);
     } else {
       await AsyncStorage.removeItem("myToken");
-      delete instance.defaults.headers.common.Authorization;
+      delete instance2.defaults.headers.common.Authorization;
       this.user = null;
     }
   };
 
   login = async userData => {
     try {
-      const res = await instance.post("login/", userData);
+      const res = await instance2.post("login/", userData);
       const user = res.data;
       await this.setUser(user.access);
     } catch (err) {
@@ -33,10 +38,10 @@ class AuthStore {
 
   register = async userData => {
     try {
-      const res = await instance.post("register/", userData);
+      const res = await instance2.post("register/", userData);
       const data = res.data;
       await this.setUser(data.token);
-      navigation.navigate("Profile");
+      // navigation.navigate("Profile");
     } catch (error) {
       console.error(error.response.data);
     }

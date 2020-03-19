@@ -2,8 +2,9 @@ import { computed, decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 
 class CartStore {
-  items = [{ "": "" }];
-  //  this is being called on handleAdd.CoralDetail  //
+  // items = [{ "": "" }];
+  items = [];
+
   saveCart = async () => {
     let myJSON = JSON.stringify(this.items);
     await AsyncStorage.setItem("myData", myJSON);
