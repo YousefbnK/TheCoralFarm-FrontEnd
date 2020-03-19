@@ -6,7 +6,7 @@ import Profile from "../components/Profile";
 import OrderList from "../components/Profile/OrderList";
 import CoralDetail from "../components/CoralDetail";
 import CoralCart from "../components/Cart";
-import Example from "../components/Modal/Example";
+import LoginModal from "../components/Modal/LoginModal";
 
 // import CoralType from "../components/type";
 
@@ -14,13 +14,13 @@ const StackNav = createStackNavigator(
   {
     ListScreen: CoralList,
     Profile: Profile,
-    Example: Example,
+    Example: LoginModal,
     DetailScreen: CoralDetail,
     CartScreen: CoralCart,
     Orders: OrderList
   },
   {
-    initialRouteName: "CartScreen",
+    initialRouteName: "ListScreen",
     defaultNavigationOptions: {
       title: "Profile"
     }

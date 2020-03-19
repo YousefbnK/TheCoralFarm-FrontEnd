@@ -22,7 +22,9 @@ class CoralStore {
   //   }
   // };
 
-  fetchcorals = () => (this.corals = corals);
+  fetchcorals = () => {
+    this.corals = corals;
+  };
 
   // fetchCoraltype = () => (this.coralType = coralstype);
 }

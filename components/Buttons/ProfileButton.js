@@ -2,8 +2,6 @@ import React from "react";
 import { observer } from "mobx-react";
 import { withNavigation } from "react-navigation";
 import { Icon, Button } from "native-base";
-import authStore from "../../stores/authStore";
-import Example from "../Modal/Example";
 
 // Stores
 
