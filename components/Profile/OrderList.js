@@ -6,6 +6,7 @@ import { Content, List, Text } from "native-base";
 
 // Components
 import OrderCard from "./OrderCard";
+import CartButton from "../Buttons/CartButton"
 
 //Stores
 import orderStore from "../../stores/orderStore";
@@ -23,5 +24,8 @@ class OrderList extends Component {
     );
   }
 }
-
+OrderList.navigationOptions = ({ navigation }) => ({
+  title:"Orders History",
+  headerRight: <CartButton />
+});
 export default observer(OrderList);

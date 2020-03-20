@@ -13,26 +13,24 @@ import {
 
 import styles from "./styles";
 
-const OrderCard = ({ order, navigation }) => {
-  const handlePress = () => {
-    navigation.navigate("OrderDetailScreen", { orderObj: order, orderId:`Order#${order.id}` });
-
-  };
+const OrderDetailsCards = ({ order, navigation }) => {
 
   return (
     <Content>
       <Card>
         <CardItem>
-          <Text style={styles.text}>order#{order.id}</Text>
+          <Text style={styles.text}>{order.coralName}</Text>
+          <Text note> add imge  </Text>
         </CardItem>
 
-        <CardItem button onPress={handlePress}>
+        <CardItem >
+
           <Text>
-            KD {order.totalPrice} | {order.pyment_method}
+            KD {order.coralPrice} | quantity: {order.quantity}
           </Text>
 
           <Right>
-            <Text>{order.date}</Text>
+            <Text>Total Price{order.totalPrice}</Text>
           </Right>
         </CardItem>
       </Card>
@@ -40,4 +38,4 @@ const OrderCard = ({ order, navigation }) => {
   );
 };
 
-export default withNavigation(OrderCard);
+export default withNavigation(OrderDetailsCards);

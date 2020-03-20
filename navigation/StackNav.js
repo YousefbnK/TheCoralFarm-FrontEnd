@@ -4,7 +4,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import CoralList from "../components/CoralList";
 import Profile from "../components/Profile";
 import OrderList from "../components/Profile/OrderList";
-import OrderDetail from "../components/Profile/OrderDetail";
+import OrderDetail from "../components/Orders/OrderDetail";
 import CoralDetail from "../components/CoralDetail";
 import CoralCart from "../components/Cart";
 import LoginModal from "../components/Modal/LoginModal";
