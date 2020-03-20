@@ -1,7 +1,10 @@
 const orders = [
   {
+    id: 1,
     date: "2020-03-18",
     user: 1,
+    totalPrice: 47,
+    pyment_method: "Knet",
     order_items: [
       {
         quantity: 1,
@@ -20,8 +23,34 @@ const orders = [
     ]
   },
   {
+    id: 2,
     date: "2020-03-18",
     user: 1,
+    totalPrice: 24,
+    pyment_method: "Cash",
+    order_items: [
+      {
+        quantity: 1,
+        coral: 6,
+        coralName: "Green Star Polyp",
+        coralPrice: 7.0,
+        totalPrice: 7.0
+      },
+      {
+        quantity: 1,
+        coral: 8,
+        coralName: "Cyclops Galaxea",
+        coralPrice: 17.0,
+        totalPrice: 17.0
+      }
+    ]
+  },
+  {
+    id: 300,
+    date: "2020-03-18",
+    user: 1,
+    totalPrice: 64,
+    pyment_method: "Knet",
     order_items: [
       {
         quantity: 2,
