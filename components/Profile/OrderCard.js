@@ -1,4 +1,5 @@
 import React from "react";
+import { withNavigation } from "react-navigation";
 import {
   Header,
   Content,
@@ -12,7 +13,12 @@ import {
 
 import styles from "./styles";
 
-const OrderCard = ({ order }) => {
+const OrderCard = ({ order, navigation }) => {
+  const handlePress = () => {
+    navigation.navigate("OrderDetailScreen", { orderObj: order });
+    console.log("whaaaaaat");
+  };
+
   return (
     <Content>
       <Card>
@@ -20,7 +26,7 @@ const OrderCard = ({ order }) => {
           <Text style={styles.text}>order#{order.id}</Text>
         </CardItem>
 
-        <CardItem>
+        <CardItem button onPress={handlePress}>
           <Text>
             KD {order.totalPrice} | {order.pyment_method}
           </Text>
@@ -34,4 +40,4 @@ const OrderCard = ({ order }) => {
   );
 };
 
-export default OrderCard;
+export default withNavigation(OrderCard);
