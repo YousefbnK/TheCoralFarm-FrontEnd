@@ -9,6 +9,7 @@ import {
   Left,
   Right
 } from "native-base";
+
 import styles from "./styles";
 
 const OrderCard = ({ order }) => {
