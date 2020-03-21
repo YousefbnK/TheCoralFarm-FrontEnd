@@ -5,7 +5,10 @@ import { withNavigation } from "react-navigation";
 import { ImageBackground, View } from "react-native";
 
 // NativeBase Components
-import { ListItem, Card, CardItem, Text, Left } from "native-base";
+import { ListItem, Card, CardItem, Text, Left, Right, Button,Icon } from "native-base";
+
+// Stores
+import cartStore from "../../stores/coralStore";
 
 import styles from "./styles";
 
@@ -16,6 +19,20 @@ const CoralCard = ({ coral, navigation }) => {
       coralName: coral.name,
       coralPrice: coral.price
     });
+
+    const handleAdd = () => {
+      
+      const addToCart={
+        coral: coral.name,
+        price: coral.price,
+        total: coral.price,
+        quantity: 1
+      };
+      cartStore.addItemToCart(this.state);
+      cartStore.saveCart();
+    
+    };
+
   return (
     <ImageBackground source={{ uri: coral.image }} style={styles.background}>
       <View style={styles.overlay} />
@@ -28,6 +45,19 @@ const CoralCard = ({ coral, navigation }) => {
                 {coral.price}
               </Text>
             </Left>
+            
+            <Right>
+            <Button onPress={handleAdd} transparent>
+            <Text style={{ color: "white" }}>Add to cart</Text>
+              <Icon
+                 name="ios-add-circle"
+                  type="Ionicons"
+                  style={{ color: "white" }}
+                  size={30}
+                  onPress={handleAdd}
+             />
+            </Button>
+            </Right>
           </CardItem>
         </Card>
       </ListItem>
