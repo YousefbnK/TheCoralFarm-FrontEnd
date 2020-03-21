@@ -8,10 +8,11 @@ import styles from "./styles";
 // Component
 import CoralCard from "./CoralCard";
 import CartButton from "../Buttons/CartButton";
-import ProfileButton from "../Buttons/ProfileButton";
+// import ProfileButton from "../Buttons/ProfileButton";
 
 // Stores
 import coralStore from "../../stores/coralStore";
+import NavigationDrawer from "../Buttons/NavigationDrawer";
 
 class CoralList extends Component {
   render() {
@@ -26,9 +27,9 @@ class CoralList extends Component {
   }
 }
 
-CoralList.navigationOptions = {
+CoralList.navigationOptions = ({ navigation }) => ({
   title: "Coral List",
   headerRight: <CartButton />,
-  headerLeft: <ProfileButton />
-};
+  headerLeft: <NavigationDrawer navigation={navigation} />
+});
 export default observer(CoralList);
