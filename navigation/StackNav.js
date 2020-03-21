@@ -22,7 +22,7 @@ const StackNav = createStackNavigator(
   {
     initialRouteName: "ListScreen",
     defaultNavigationOptions: {
-      title: "Profile"
+      title: "Home"
     }
   }
 );
