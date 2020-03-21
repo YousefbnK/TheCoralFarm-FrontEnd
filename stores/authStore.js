@@ -3,6 +3,8 @@ import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
 
+
+
 class AuthStore {
   user = null;
 
@@ -26,8 +28,10 @@ class AuthStore {
       const res = await instance.post("login/", userData);
       const user = res.data;
       await this.setUser(user.access);
+      console.log("i am logged in ");
     } catch (err) {
-      console.log("something went wrong logging in");
+      error.log(err);
+      error.log("something went wrong logging in");
     }
   };
 
@@ -36,9 +40,9 @@ class AuthStore {
       const res = await instance.post("register/", userData);
       const data = res.data;
       await this.setUser(data.token);
-      navigation.navigate("Profile");
+      // navigation.navigate("Profile");
     } catch (error) {
-      console.error(error.response.data);
+      console.error(error);
     }
   };
 

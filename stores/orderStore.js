@@ -2,10 +2,10 @@ import { decorate, observable } from "mobx";
 import { instance } from "./instance";
 
 // for now i'm using a dummy data delete it later
-import corals from "../data";
+import orders from "../orders";
 
 class OrderStore {
-  ordersList = corals;
+  ordersList = orders;
   loading = true;
 
   // fetchOrders = async () => {
@@ -20,9 +20,7 @@ class OrderStore {
   //   }
   // };
 
-  fetchOrders = () => (this.ordersList = corals);
-
-  // fetchCoraltype = () => (this.coralType = coralstype);
+  fetchOrders = () => (this.ordersList = orders);
 }
 
 decorate(OrderStore, {
