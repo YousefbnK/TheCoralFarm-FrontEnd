@@ -30,12 +30,18 @@ class OrderDetail extends Component {
       <Card>
       <Text style={styles.text}> Date: {this.order.date}</Text>
       <Text style={styles.text}> Pyment Method: {this.order.pyment_method}</Text>
-      <Text style={styles.text}> Pyment Method: {this.order.totalPrice}</Text>
+      
       </Card>
 
-          <List>
+        <List>
           {this.ordercard}
-          </List>
+        </List>
+          <Card>
+        <Right>
+
+          <Text style={styles.text}> SubTotal: {this.order.totalPrice} KD</Text>
+        </Right>
+          </Card>
 
       </Content>
     );

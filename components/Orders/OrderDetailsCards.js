@@ -21,16 +21,17 @@ const OrderDetailsCards = ({ order, navigation }) => {
         <CardItem>
           <Text style={styles.text}>{order.coralName}</Text>
           <Text note> add imge  </Text>
+          {/* order.image when we link the API */}
         </CardItem>
 
         <CardItem >
 
           <Text>
-            KD {order.coralPrice} | quantity: {order.quantity}
+            KD {order.coralPrice} | Quantity: {order.quantity}
           </Text>
 
           <Right>
-            <Text>Total Price{order.totalPrice}</Text>
+            <Text>Total {order.totalPrice} KD</Text>
           </Right>
         </CardItem>
       </Card>

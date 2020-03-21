@@ -3,7 +3,7 @@ import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
 
-//  change instence to instance when using it (to yousef)
+
 
 class AuthStore {
   user = null;
