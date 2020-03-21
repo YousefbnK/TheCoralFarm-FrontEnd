@@ -1,12 +1,13 @@
 import { createSwitchNavigator } from "react-navigation";
 
 //Navs
-import AuthNav from "./AuthNav";
+
 import StackNav from "./StackNav";
+import DrawerNav from "./DrawerNav";
 
 const SwitchNav = createSwitchNavigator({
-  StackNav: StackNav,
-  AuthNav: AuthNav
+  DrawerNav: DrawerNav,
+  StackNav: StackNav
 });
 
 export default SwitchNav;
