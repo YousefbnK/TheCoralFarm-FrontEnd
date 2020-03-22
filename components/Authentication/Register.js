@@ -16,7 +16,10 @@ class Register extends Component {
     password: ""
   };
 
-  submitSignup = () => authStore.register(this.state);
+  submitSignup = () => {
+    authStore.register(this.state);
+    this.props.handleClose();
+  };
 
   handlePress = () => this.props.login();
 

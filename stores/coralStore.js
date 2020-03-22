@@ -10,21 +10,20 @@ class CoralStore {
   // coralType = [coralType];
   loading = true;
 
-  // fetchCoraltype = async () => {
-  //   try {
-  //     const res = await instance.get("coraltype/");
-  //     // change  import from  instance2 to instance when using it
-  //     const type = res.data;
-  //     this.coralType = type;
-  //     this.loading = false;
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  fetchcorals = () => {
-    this.corals = corals;
+  fetchcorals = async () => {
+    try {
+      const res = await instance.get("coraltype/corals/");
+      const corals = res.data;
+      this.corals = corals;
+      this.loading = false;
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  // fetchcorals = () => {
+  //   this.corals = corals;
+  // };
 
   // fetchCoraltype = () => (this.coralType = coralstype);
 }

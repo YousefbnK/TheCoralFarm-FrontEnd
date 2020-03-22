@@ -30,8 +30,8 @@ class AuthStore {
       await this.setUser(user.access);
       console.log("i am logged in ");
     } catch (err) {
-      error.log(err);
-      error.log("something went wrong logging in");
+      console.log(err);
+      console.log("something went wrong logging in");
     }
   };
 
