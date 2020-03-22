@@ -14,35 +14,35 @@ import {
 import styles from "./styles";
 
 // Component
-import OrderDetailsCards from "./OrderDetailsCards"
-import CartButton from "../Buttons/CartButton"
+import OrderDetailsCards from "./OrderDetailsCards";
+import CartButton from "../Buttons/CartButton";
 
 class OrderDetail extends Component {
   order = this.props.navigation.getParam("orderObj");
 
-  ordercard=this.order.order_items.map(item =>
-    <OrderDetailsCards order={item}  key={item.coral}/>
-  )
+  ordercard = this.order.order_items.map(item => (
+    <OrderDetailsCards order={item} key={item.coral} />
+  ));
   render() {
-    
     return (
       <Content>
-      <Card>
-      <Text style={styles.text}> Date: {this.order.date}</Text>
-      <Text style={styles.text}> Pyment Method: {this.order.pyment_method}</Text>
-      
-      </Card>
+        <Card>
+          <Text style={styles.text}> Date: {this.order.date}</Text>
+          <Text style={styles.text}>
+            {" "}
+            Payment Method: {this.order.pyment_method}
+          </Text>
+        </Card>
 
-        <List>
-          {this.ordercard}
-        </List>
-          <Card>
-        <Right>
-
-          <Text style={styles.text}> SubTotal: {this.order.totalPrice} KD</Text>
-        </Right>
-          </Card>
-
+        <List>{this.ordercard}</List>
+        <Card>
+          <Right>
+            <Text style={styles.text}>
+              {" "}
+              SubTotal: {this.order.totalPrice} KD
+            </Text>
+          </Right>
+        </Card>
       </Content>
     );
   }

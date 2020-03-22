@@ -1,14 +1,23 @@
 import React from "react";
 import { withNavigation } from "react-navigation";
-// import { observer } from "mobx-react";
+import { observer } from "mobx-react";
 
 import { ImageBackground, View } from "react-native";
 
 // NativeBase Components
-import { ListItem, Card, CardItem, Text, Left, Right, Button,Icon } from "native-base";
+import {
+  ListItem,
+  Card,
+  CardItem,
+  Text,
+  Left,
+  Right,
+  Button,
+  Icon
+} from "native-base";
 
 // Stores
-import cartStore from "../../stores/coralStore";
+import cartStore from "../../stores/cartStore";
 
 import styles from "./styles";
 
@@ -20,17 +29,16 @@ const CoralCard = ({ coral, navigation }) => {
       coralPrice: coral.price
     });
 
-    const handleAdd = () => {
-      
-      const addToCart={
-        coral: coral.name,
-        price: coral.price,
-        total: coral.price,
-        quantity: 1
-      };
-      cartStore.addItemToCart(this.state);
-      cartStore.saveCart();
+  const handleAdd = () => {
+    const addToCart = {
+      coral: coral.name,
+      price: coral.price,
+      total: coral.price,
+      quantity: 1
     };
+    cartStore.addItemToCart(addToCart);
+    cartStore.saveCart();
+  };
 
   return (
     <ImageBackground source={{ uri: coral.image }} style={styles.background}>
@@ -44,18 +52,18 @@ const CoralCard = ({ coral, navigation }) => {
                 {coral.price}
               </Text>
             </Left>
-            
+
             <Right>
-            <Button onPress={handleAdd} transparent>
-            <Text style={{ color: "white" }}>Add to cart</Text>
-              <Icon
-                 name="ios-add-circle"
+              <Button onPress={handleAdd} transparent>
+                <Text style={{ color: "white" }}>Add to cart</Text>
+                <Icon
+                  name="ios-add-circle"
                   type="Ionicons"
                   style={{ color: "white" }}
                   size={30}
                   onPress={handleAdd}
-             />
-            </Button>
+                />
+              </Button>
             </Right>
           </CardItem>
         </Card>
@@ -68,4 +76,4 @@ const CoralCard = ({ coral, navigation }) => {
 //   title: "Cart"
 // };
 
-export default withNavigation(CoralCard);
+export default withNavigation(observer(CoralCard));

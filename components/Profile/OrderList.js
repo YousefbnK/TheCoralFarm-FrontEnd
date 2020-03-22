@@ -6,14 +6,14 @@ import { Content, List, Text } from "native-base";
 
 // Components
 import OrderCard from "./OrderCard";
-import CartButton from "../Buttons/CartButton"
+import CartButton from "../Buttons/CartButton";
 
 //Stores
 import orderStore from "../../stores/orderStore";
 
 class OrderList extends Component {
   orders = orderStore.ordersList.map(order => (
-    <OrderCard order={order} key={order.name} />
+    <OrderCard order={order} key={order.id} />
   ));
 
   render() {
@@ -25,7 +25,7 @@ class OrderList extends Component {
   }
 }
 OrderList.navigationOptions = ({ navigation }) => ({
-  title:"Orders History",
+  title: "Orders History",
   headerRight: <CartButton />
 });
 export default observer(OrderList);

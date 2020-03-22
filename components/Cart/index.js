@@ -34,7 +34,7 @@ class CoralCart extends Component {
 
   render() {
     const cartItems = cartStore.items.map(item => (
-      <CartItem item={item} key={`${item.id}`} />
+      <CartItem item={item} key={item.coral} />
     ));
 
     return (

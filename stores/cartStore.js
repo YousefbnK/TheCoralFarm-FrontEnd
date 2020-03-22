@@ -2,11 +2,11 @@ import { computed, decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 
 class CartStore {
-  // items = [{ "": "" }];
   items = [];
+  AsyncItems = [];
 
   saveCart = async () => {
-    let myJSON = JSON.stringify(this.items);
+    let myJSON = JSON.stringify(this.AsyncItems);
     await AsyncStorage.setItem("myData", myJSON);
   };
 
@@ -14,17 +14,21 @@ class CartStore {
     try {
       let newItems = await AsyncStorage.getItem("myData");
       newItems = JSON.parse(newItems);
-      this.items = newItems;
+      this.AsyncItems = newItems;
     } catch (err) {
       console.log(err);
     }
   };
 
   addItemToCart = item => {
-    if (this.items) {
+    if (this.items != null) {
       const itemExist = this.items.find(_item => _item.coral === item.coral);
-      itemExist.quantity += item.quantity;
-      itemExist.total += item.total;
+      if (itemExist) {
+        itemExist.quantity += item.quantity;
+        itemExist.total += item.total;
+      } else {
+        this.items.push(item);
+      }
     } else {
       this.items.push(item);
     }
@@ -42,13 +46,12 @@ class CartStore {
 
   get quantity() {
     let quantity = 0;
-    if(!this.items){
-      quantity = 0
-    }else{
+    if (this.items.length < 1) {
+      quantity = 0;
+    } else {
       this.items.forEach(item => (quantity += item.quantity));
     }
-    
-    
+
     return quantity;
   }
 }
