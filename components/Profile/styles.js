@@ -111,7 +111,12 @@ const styles = StyleSheet.create({
     width: 250,
     borderRadius: 30,
     backgroundColor: "#CE2B37"
-  }
+  },
+  contentContainer: {
+    flex: 1,
+    
+    justifyContent:"flex-start",
+    }
 });
 
 export default styles;

@@ -1,5 +1,5 @@
 import { decorate, observable } from "mobx";
-import { instance } from "./instance2";
+import { instance } from "./instance";
 
 // for now i'm using a dummy data delete it later
 import corals from "../data";
