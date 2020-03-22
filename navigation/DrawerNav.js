@@ -1,29 +1,12 @@
-import React from "react";
-import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
-import { Text, View } from "react-native";
+import { createDrawerNavigator } from "react-navigation-drawer";
 
 //Components
 import Profile from "../components/Profile";
 import OrderList from "../components/Profile/OrderList";
 import StackNav from "./StackNav";
+import DrawerContent from "../components/Drawer/DrawerContent";
 
 //Navs
-
-const DrawerContent = props => (
-  <View>
-    <View
-      style={{
-        backgroundColor: "#00BFFF",
-        height: 140,
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <Text style={{ color: "white", fontSize: 30 }}>Hello</Text>
-    </View>
-    <DrawerItems {...props} />
-  </View>
-);
 
 const DrawerNav = createDrawerNavigator(
   {
