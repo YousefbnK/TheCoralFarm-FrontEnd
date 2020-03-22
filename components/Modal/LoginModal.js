@@ -63,7 +63,7 @@ class LoginModal extends Component {
             {this.state.login ? (
               <Login register={this.register} handleClose={this.handleClose} />
             ) : (
-              <Register login={this.login} />
+              <Register login={this.login} handleClose={this.handleClose} />
             )}
           </ModalContent>
         </Modal.BottomModal>
