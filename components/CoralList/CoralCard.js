@@ -2,19 +2,10 @@ import React from "react";
 import { withNavigation } from "react-navigation";
 import { observer } from "mobx-react";
 
-import { ImageBackground, View } from "react-native";
+import { Text, View, TouchableHighlight, Image } from "react-native";
 
 // NativeBase Components
-import {
-  ListItem,
-  Card,
-  CardItem,
-  Text,
-  Left,
-  Right,
-  Button,
-  Icon
-} from "native-base";
+import { Button, Icon } from "native-base";
 
 // Stores
 import cartStore from "../../stores/cartStore";
@@ -41,34 +32,26 @@ const CoralCard = ({ coral, navigation }) => {
   };
 
   return (
-    <ImageBackground source={{ uri: coral.image }} style={styles.background}>
-      <View style={styles.overlay} />
-      <ListItem button onPress={handlePress} style={styles.listitem}>
-        <Card style={styles.transparent}>
-          <CardItem style={styles.transparent}>
-            <Left>
-              <Text style={styles.text}>{coral.name}</Text>
-              <Text note style={styles.text}>
-                {coral.price}
-              </Text>
-            </Left>
+    <TouchableHighlight
+      underlayColor="rgba(73, 182, 77, 1.0)"
+      onPress={handlePress}
+    >
+      <View style={styles.container}>
+        <Image style={styles.photo} source={{ uri: coral.image }} />
+        <Text style={styles.title}>{coral.name}</Text>
+        <Text style={styles.category}>{coral.price}</Text>
 
-            <Right>
-              <Button onPress={handleAdd} transparent>
-                <Text style={{ color: "white" }}>Add to cart</Text>
-                <Icon
-                  name="ios-add-circle"
-                  type="Ionicons"
-                  style={{ color: "white" }}
-                  size={30}
-                  onPress={handleAdd}
-                />
-              </Button>
-            </Right>
-          </CardItem>
-        </Card>
-      </ListItem>
-    </ImageBackground>
+        <Button transparent onPress={handleAdd}>
+          <Text style={{ color: "grey" }}>Add to cart</Text>
+          <Icon
+            name="ios-add-circle"
+            type="Ionicons"
+            style={{ color: "black" }}
+            size={45}
+          />
+        </Button>
+      </View>
+    </TouchableHighlight>
   );
 };
 
