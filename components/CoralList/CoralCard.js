@@ -30,7 +30,6 @@ const CoralCard = ({ coral, navigation }) => {
       };
       cartStore.addItemToCart(this.state);
       cartStore.saveCart();
-    
     };
 
   return (
