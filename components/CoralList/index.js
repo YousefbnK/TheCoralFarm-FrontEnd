@@ -2,27 +2,39 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Content, List } from "native-base";
-import styles from "./styles";
+
+import { FlatList, View } from "react-native";
+
+import corals from "../../data";
 
 // Component
 import CoralCard from "./CoralCard";
+// import CoralCard from "./CoralCard";
+
 import CartButton from "../Buttons/CartButton";
-// import ProfileButton from "../Buttons/ProfileButton";
+import NavigationDrawer from "../Buttons/NavigationDrawer";
 
 // Stores
 import coralStore from "../../stores/coralStore";
-import NavigationDrawer from "../Buttons/NavigationDrawer";
 
 class CoralList extends Component {
   render() {
-    coralItems = coralStore.corals.map(item => (
-      <CoralCard coral={item} key={item.id} />
-    ));
+    const coralItems = () =>
+      coralStore.corals.map(item => <CoralCard coral={item} key={item.id} />);
+
     return (
-      <Content style={styles.header}>
-        <List>{coralItems}</List>
-      </Content>
+      // <Content style={styles.header}>
+      <View>
+        <FlatList
+          vertical
+          showsVerticalScrollIndicator={false}
+          numColumns={2}
+          data={corals}
+          renderItem={coralItems}
+        />
+        {/* <List>{coralItems}</List> */}
+      </View>
+      // </Content>
     );
   }
 }
