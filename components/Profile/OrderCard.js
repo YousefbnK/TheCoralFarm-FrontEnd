@@ -24,7 +24,8 @@ const OrderCard = ({ order, navigation }) => {
     console.log(orderimg);
   };
 
-  const orderimg = () =>
+  const orderimg = () => {
+    // console.log("orderitem/OrderCard", order.orderItems);
     order.orderItems.map(item => {
       return (
         <Image
@@ -39,6 +40,7 @@ const OrderCard = ({ order, navigation }) => {
         />
       );
     });
+  };
 
   return (
     <Content>
