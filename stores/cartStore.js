@@ -42,11 +42,11 @@ class CartStore {
     this.saveCart();
   };
 
-  checkoutCart = () => {
+  checkoutCart = async () => {
     orderStore.checkoutPrep(this.items);
-    orderStore.checkoutOrders();
+    await orderStore.checkoutOrders();
     this.items = [];
-    AsyncStorage.removeItem("myData");
+    await AsyncStorage.removeItem("myData");
   };
 
   get quantity() {

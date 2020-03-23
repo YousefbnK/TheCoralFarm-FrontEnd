@@ -3,8 +3,6 @@ import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
 
-
-
 class AuthStore {
   user = null;
 
@@ -39,7 +37,7 @@ class AuthStore {
     try {
       const res = await instance.post("register/", userData);
       const data = res.data;
-      await this.setUser(data.token);
+      await this.setUser(data.access);
       // navigation.navigate("Profile");
     } catch (error) {
       console.error(error);
@@ -61,9 +59,9 @@ class AuthStore {
       // Check token expiration
       if (user.exp >= currentTime) {
         // Set auth token header
-        this.setUser(token);
+        await this.setUser(token);
       } else {
-        this.logout();
+        this.setUser();
       }
     }
   };
@@ -74,6 +72,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-// authStore.checkForToken();
+authStore.checkForToken();
 
 export default authStore;
