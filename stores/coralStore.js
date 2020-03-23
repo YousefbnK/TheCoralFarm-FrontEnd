@@ -16,6 +16,7 @@ class CoralStore {
       const corals = res.data;
       this.corals = corals;
       this.loading = false;
+      // console.log(this.corals);
     } catch (err) {
       console.error(err);
     }

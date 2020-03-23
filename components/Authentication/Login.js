@@ -11,6 +11,7 @@ import styles from "./styles";
 
 // Store
 import authStore from "../../stores/authStore";
+import orderStore from "../../stores/orderStore";
 
 class Login extends Component {
   state = {
@@ -20,6 +21,7 @@ class Login extends Component {
 
   submitLogin = () => {
     authStore.login(this.state);
+
     this.props.handleClose();
   };
 

@@ -23,6 +23,7 @@ const CoralCard = ({ coral, navigation }) => {
   const handleAdd = () => {
     const addToCart = {
       coral: coral.name,
+      id: coral.id,
       price: coral.price,
       total: coral.price,
       quantity: 1
@@ -54,9 +55,5 @@ const CoralCard = ({ coral, navigation }) => {
     </TouchableHighlight>
   );
 };
-
-// cart.navigationOptions = {
-//   title: "Cart"
-// };
 
 export default withNavigation(observer(CoralCard));

@@ -25,7 +25,7 @@ const OrderCard = ({ order, navigation }) => {
   };
 
   const orderimg = () =>
-    order.order_items.map(item => {
+    order.orderItems.map(item => {
       return (
         <Image
           style={{

@@ -20,7 +20,7 @@ import CartButton from "../Buttons/CartButton";
 class OrderDetail extends Component {
   order = this.props.navigation.getParam("orderObj");
 
-  ordercard = this.order.order_items.map(item => (
+  ordercard = this.order.orderItems.map(item => (
     <OrderDetailsCards order={item} key={item.coral} />
   ));
   render() {

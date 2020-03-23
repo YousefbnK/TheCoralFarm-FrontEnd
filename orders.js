@@ -5,15 +5,15 @@ const orders = [
     user: 1,
     totalPrice: 47,
     pyment_method: "Knet",
-    
-    order_items: [
+
+    orderItems: [
       {
         quantity: 1,
         coral: 5,
         coralName: "Bam Bam Zoanthids",
         coralPrice: 15.0,
         totalPrice: 15.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       },
       {
         quantity: 2,
@@ -21,7 +21,7 @@ const orders = [
         coralName: "Oxide Zoanthids",
         coralPrice: 16.0,
         totalPrice: 32.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       }
     ]
   },
@@ -31,15 +31,15 @@ const orders = [
     user: 1,
     totalPrice: 24,
     pyment_method: "Cash",
-   
-    order_items: [
+
+    orderItems: [
       {
         quantity: 1,
         coral: 6,
         coralName: "Green Star Polyp",
         coralPrice: 7.0,
         totalPrice: 7.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       },
       {
         quantity: 1,
@@ -47,7 +47,7 @@ const orders = [
         coralName: "Cyclops Galaxea",
         coralPrice: 17.0,
         totalPrice: 17.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       }
     ]
   },
@@ -57,15 +57,15 @@ const orders = [
     user: 1,
     totalPrice: 64,
     pyment_method: "Knet",
-   
-    order_items: [
+
+    orderItems: [
       {
         quantity: 2,
         coral: 4,
         coralName: "AOI Zoanthids",
         coralPrice: 20.0,
         totalPrice: 40.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       },
       {
         quantity: 1,
@@ -73,7 +73,7 @@ const orders = [
         coralName: "Green Star Polyp",
         coralPrice: 7.0,
         totalPrice: 7.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       },
       {
         quantity: 1,
@@ -81,7 +81,7 @@ const orders = [
         coralName: "Cyclops Galaxea",
         coralPrice: 17.0,
         totalPrice: 17.0,
-        image: "https://picsum.photos/200",
+        image: "https://picsum.photos/200"
       }
     ]
   }
