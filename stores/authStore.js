@@ -73,7 +73,7 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-// authStore.checkForToken();
-console.log("Hey you", authStore.user);
+authStore.checkForToken();
+// console.log("Hey you", authStore.user);
 
 export default authStore;

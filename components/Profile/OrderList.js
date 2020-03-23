@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Content, List, Text } from "native-base";
+import { Content, List, Spinner } from "native-base";
 
 // Components
 import OrderCard from "./OrderCard";
@@ -18,6 +18,7 @@ class OrderList extends Component {
   }
 
   render() {
+    if (orderStore.loading) return <Spinner />;
     const orders = orderStore.ordersList.map(order => (
       <OrderCard order={order} key={order.id} />
     ));
