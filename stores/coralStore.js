@@ -10,21 +10,21 @@ class CoralStore {
   // coralType = [coralType];
   loading = true;
 
-  fetchcorals = async () => {
-    try {
-      const res = await instance.get("coraltype/corals/");
-      const corals = res.data;
-      this.corals = corals;
-      this.loading = false;
-      // console.log(this.corals);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // fetchcorals = () => {
-  //   this.corals = corals;
+  // fetchcorals = async () => {
+  //   try {
+  //     const res = await instance.get("coraltype/corals/");
+  //     const corals = res.data;
+  //     this.corals = corals;
+  //     this.loading = false;
+  //     // console.log(this.corals);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
   // };
+
+  fetchcorals = () => {
+    this.corals = corals;
+  };
 
   // fetchCoraltype = () => (this.coralType = coralstype);
 }
@@ -36,5 +36,4 @@ decorate(CoralStore, {
 
 const coralStore = new CoralStore();
 coralStore.fetchcorals();
-
 export default coralStore;

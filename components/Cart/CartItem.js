@@ -15,7 +15,6 @@ import cartStore from "../../stores/cartStore";
 import { observer } from "mobx-react";
 
 const CartItem = ({ item }) => {
-  console.log("Item", item);
   const changeQuantity = value => {
     item.quantity = value;
     item.total = value * item.price;

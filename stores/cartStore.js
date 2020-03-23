@@ -9,15 +9,17 @@ class CartStore {
   AsyncItems = [];
 
   saveCart = async () => {
-    let myJSON = JSON.stringify(this.AsyncItems);
+    let myJSON = JSON.stringify(this.items);
     await AsyncStorage.setItem("myData", myJSON);
   };
 
   fetchCart = async () => {
     try {
       let newItems = await AsyncStorage.getItem("myData");
-      newItems = JSON.parse(newItems);
-      this.AsyncItems = newItems;
+      if (newItems) {
+        newItems = JSON.parse(newItems);
+        this.items = newItems;
+      }
     } catch (err) {
       console.log(err);
     }

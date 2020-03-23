@@ -19,14 +19,13 @@ import coralStore from "../../stores/coralStore";
 class CoralList extends Component {
   render() {
     const coralItems = () =>
-      coralStore.corals.map(item => <CoralCard coral={item} key={item.id} />);
-
+      coralStore.corals.map(item => <CoralCard coral={item} key={item.name} />);
     return (
       <View>
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
-          numColumns={2}
+          numColumns={1}
           data={corals}
           renderItem={coralItems}
         />
