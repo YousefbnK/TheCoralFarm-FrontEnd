@@ -64,21 +64,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    marginLeft: CORAL_ITEM_MARGIN,
-    marginTop: 20,
-    width:
-      (SCREEN_WIDTH - (recipeNumColums + 1) * CORAL_ITEM_MARGIN) /
-      recipeNumColums,
+    alignItems: "flex-start",
+    alignSelf: "center",
+    margin: 20,
+    width: "90%",
     height: CORAL_ITEM_HEIGHT + 110,
     borderColor: "#cccccc",
     borderWidth: 0.5,
     borderRadius: 15
   },
   photo: {
-    width:
-      (SCREEN_WIDTH - (recipeNumColums + 1) * CORAL_ITEM_MARGIN) /
-      recipeNumColums,
+    width: "100%",
     height: CORAL_ITEM_HEIGHT,
     borderRadius: 15,
     borderBottomLeftRadius: 0,
@@ -91,13 +87,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     color: "#444444",
-    marginTop: 3,
-    marginRight: 5,
-    marginLeft: 5
+    marginTop: 3
   },
   category: {
     marginTop: 5,
     marginBottom: 5
+  },
+  list: {
+    flex: 1
+  },
+  item: {
+    flex: 1,
+    margin: 0,
+    flexBasis: "10%"
   }
 });
 

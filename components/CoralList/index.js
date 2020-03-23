@@ -3,9 +3,9 @@ import { observer } from "mobx-react";
 
 // NativeBase Components
 
-import { FlatList, View } from "react-native";
+import { FlatList, View, ScrollView } from "react-native";
 
-import corals from "../../data";
+import styles from "./styles";
 
 // Component
 import CoralCard from "./CoralCard";
@@ -18,17 +18,12 @@ import coralStore from "../../stores/coralStore";
 
 class CoralList extends Component {
   render() {
-    const coralItems = () =>
-      coralStore.corals.map(item => <CoralCard coral={item} key={item.name} />);
+    const coralItems = coralStore.corals.map(item => (
+      <CoralCard coral={item} key={item.name} />
+    ));
     return (
       <View>
-        <FlatList
-          vertical
-          showsVerticalScrollIndicator={false}
-          numColumns={1}
-          data={corals}
-          renderItem={coralItems}
-        />
+        <ScrollView>{coralItems}</ScrollView>
       </View>
     );
   }
