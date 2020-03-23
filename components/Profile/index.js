@@ -12,11 +12,6 @@ import { Text } from "native-base";
 import authStore from "../../stores/authStore";
 
 const Profile = ({ navigation }) => {
-  const handlePress = () =>
-    authStore.user
-      ? navigation.navigate("Orders")
-      : navigation.navigate("Login");
-
   const handleLogout = () => {
     authStore.logout();
     navigation.navigate("ListScreen");
@@ -33,18 +28,6 @@ const Profile = ({ navigation }) => {
           <Text style={styles.name}>John</Text>
           <Text style={styles.info}>test</Text>
           <Text style={styles.description}>John</Text>
-
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={handlePress}
-          >
-            <Text>Previous Orders</Text>
-          </TouchableOpacity>
-          {authStore.user && (
-            <TouchableOpacity style={styles.logout} onPress={handleLogout}>
-              <Text>Log out</Text>
-            </TouchableOpacity>
-          )}
         </View>
       </View>
     </View>

@@ -5,24 +5,23 @@ import NumericInput from "react-native-numeric-input";
 
 // NativeBase Components
 
+import { Body, CardItem } from "native-base";
+
+//React Native
 import {
-  Body,
-  Button,
-  Card,
-  CardItem,
-  Container,
-  Content,
-  Thumbnail,
-  Left,
-  Right,
-  Text
-} from "native-base";
+  ScrollView,
+  Text,
+  View,
+  Image,
+  TouchableHighlight
+} from "react-native";
 
 // Style
 import styles from "./styles";
 
 // Components
-import CartButton from "../Buttons/CartButton";
+// import CartButton from "../Buttons/CartButton";
+import BackButton from "../Buttons/BackButton";
 
 // // Stores
 import coralStore from "../../stores/coralStore";
@@ -48,6 +47,7 @@ class CoralDetail extends Component {
     cartStore.addItemToCart(this.state);
     cartStore.saveCart();
     this.setState({ quantity: 1, total: this.state.price });
+    this.props.navigation.navigate("CartScreen");
   };
 
   render() {
@@ -55,52 +55,52 @@ class CoralDetail extends Component {
     const coral = coralStore.corals.find(coral => coralID === coral.id);
 
     return (
-      <Container>
-        <Content>
-          <Card transparent style={styles.card}>
-            <CardItem>
-              <Left>
-                <Text>{coral.name}</Text>
-                <Text note> {coral.price} KD</Text>
-              </Left>
-              <Body />
-              <Right>
-                <Thumbnail bordered source={{ uri: coral.image }} />
-              </Right>
-            </CardItem>
+      <ScrollView style={styles.container}>
+        <View style={styles.carouselContainer}>
+          <View style={styles.carousel}>
+            <Image style={styles.image} source={{ uri: coral.image }} />
+          </View>
+        </View>
+        <View style={styles.infoCoralContainer}>
+          <Text style={styles.infoCoralName}>Coral: {coral.name}</Text>
+          <View style={styles.infoContainer}>
+            <TouchableHighlight>
+              <Text style={styles.category}>Price: {coral.price} KD</Text>
+            </TouchableHighlight>
+          </View>
 
-            <CardItem>
-              <Body>
-                <Text>total price : {this.state.total} KD </Text>
-              </Body>
-            </CardItem>
-
-            <CardItem>
-              <Body style={styles.numericInput}>
-                <NumericInput
-                  value={this.state.value}
-                  onChange={this.changeQuantity}
-                  initValue={1}
-                  minValue={1}
-                />
-              </Body>
-
-              <Right>
-                <Button full style={styles.addButton} onPress={this.handleAdd}>
-                  <Text>Add</Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+          <CardItem>
+            <Body style={styles.numericInput}>
+              <NumericInput
+                value={this.state.value}
+                onChange={this.changeQuantity}
+                initValue={1}
+                minValue={1}
+              />
+            </Body>
+            <View>
+              <Text style={styles.infoCoral}>Total {this.state.total} KD </Text>
+            </View>
+          </CardItem>
+          <View style={styles.infoContainer}>
+            <TouchableHighlight
+              underlayColor="rgba(73,182,77,1.0)"
+              onPress={this.handleAdd}
+            >
+              <View style={styles.containerCheckout}>
+                <Text style={styles.textCheckout}>Checkout</Text>
+              </View>
+            </TouchableHighlight>
+          </View>
+        </View>
+      </ScrollView>
     );
   }
 }
 
 CoralDetail.navigationOptions = ({ navigation }) => ({
-  title: navigation.getParam("coralName"),
-  headerRight: <CartButton />
+  headerTransparent: "true",
+  headerLeft: <BackButton navigation={navigation} />
 });
 
 export default observer(CoralDetail);

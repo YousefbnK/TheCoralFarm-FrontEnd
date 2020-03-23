@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { withNavigation } from "react-navigation";
-import { Icon, Button, Text } from "native-base";
+import { Icon, Button, Text, Badge } from "native-base";
 import { View } from "react-native";
 
 // Stores
@@ -22,9 +22,10 @@ const CartButton = ({ navigation }) => {
           justifyContent: "alignContent"
         }}
       >
-        <Text style={{ fontSize: 15, color: "#696969", textAlign: "center" }}>
+        <Text style={{ fontSize: 15, color: "#696969", textAlign: "right" }}>
           {cartStore.quantity}
         </Text>
+
         <Icon
           name="shopping-cart"
           type="FontAwesome5"
