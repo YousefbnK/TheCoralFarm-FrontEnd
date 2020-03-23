@@ -14,6 +14,7 @@ class AuthStore {
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user
       this.user = jwt_decode(token);
+      console.log("UserData", this.user);
     } else {
       await AsyncStorage.removeItem("myToken");
       delete instance.defaults.headers.common.Authorization;
@@ -25,8 +26,8 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
+      console.log("User logged in", user);
       await this.setUser(user.access);
-      console.log("i am logged in ");
     } catch (err) {
       console.log(err);
       console.log("something went wrong logging in");
@@ -72,6 +73,7 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-authStore.checkForToken();
+// authStore.checkForToken();
+console.log("Hey you", authStore.user);
 
 export default authStore;

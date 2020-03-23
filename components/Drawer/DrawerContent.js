@@ -13,8 +13,16 @@ const DrawerContent = props => (
         justifyContent: "center"
       }}
     >
-      <Text style={{ color: "white", fontSize: 30 }}>
-        {authStore.user ? authStore.user.username : "Guest"}
+      <Text
+        style={{
+          color: "white",
+          fontSize: 27,
+          marginTop: 75,
+          marginLeft: 15,
+          alignSelf: "flex-start"
+        }}
+      >
+        {authStore.user ? `Welcome ${authStore.user.user_id}` : "Guest"}
       </Text>
     </View>
     <DrawerItems {...props} />

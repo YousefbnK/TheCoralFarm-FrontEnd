@@ -10,7 +10,6 @@ class OrderStore {
   loading = true;
 
   fetchOrders = async () => {
-    console.log("im logged in 4");
     try {
       const res = await instance.get("orders/");
       const orders = res.data;
