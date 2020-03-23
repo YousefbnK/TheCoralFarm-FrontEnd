@@ -23,7 +23,6 @@ class CoralList extends Component {
       coralStore.corals.map(item => <CoralCard coral={item} key={item.id} />);
 
     return (
-      // <Content style={styles.header}>
       <View>
         <FlatList
           vertical
@@ -32,9 +31,7 @@ class CoralList extends Component {
           data={corals}
           renderItem={coralItems}
         />
-        {/* <List>{coralItems}</List> */}
       </View>
-      // </Content>
     );
   }
 }
