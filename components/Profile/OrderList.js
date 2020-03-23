@@ -10,16 +10,21 @@ import CartButton from "../Buttons/CartButton";
 
 //Stores
 import orderStore from "../../stores/orderStore";
+import authStore from "../../stores/authStore";
 
 class OrderList extends Component {
-  orders = orderStore.ordersList.map(order => (
-    <OrderCard order={order} key={order.id} />
-  ));
+  componentDidMount() {
+    if (authStore.user) orderStore.fetchOrders();
+  }
 
   render() {
+    const orders = orderStore.ordersList.map(order => (
+      <OrderCard order={order} key={order.id} />
+    ));
+
     return (
       <Content>
-        <List>{this.orders}</List>
+        <List>{orders}</List>
       </Content>
     );
   }
