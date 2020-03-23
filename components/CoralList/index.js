@@ -9,7 +9,6 @@ import corals from "../../data";
 
 // Component
 import CoralCard from "./CoralCard";
-// import CoralCard from "./CoralCard";
 
 import CartButton from "../Buttons/CartButton";
 import NavigationDrawer from "../Buttons/NavigationDrawer";

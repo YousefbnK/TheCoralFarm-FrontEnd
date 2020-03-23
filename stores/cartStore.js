@@ -1,6 +1,9 @@
 import { computed, decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 
+// store
+import orderStore from "./orderStore";
+
 class CartStore {
   items = [];
   AsyncItems = [];
@@ -40,6 +43,8 @@ class CartStore {
   };
 
   checkoutCart = () => {
+    orderStore.checkoutPrep(this.items);
+    orderStore.checkoutOrders();
     this.items = [];
     AsyncStorage.removeItem("myData");
   };

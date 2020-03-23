@@ -14,7 +14,6 @@ import {
   Content,
   Thumbnail,
   Left,
-  Picker,
   Right,
   Text
 } from "native-base";
@@ -28,10 +27,10 @@ import CartButton from "../Buttons/CartButton";
 // // Stores
 import coralStore from "../../stores/coralStore";
 import cartStore from "../../stores/cartStore";
-import authStore from "../../stores/authStore";
 
 class CoralDetail extends Component {
   state = {
+    id: this.props.navigation.getParam("coralID"),
     coral: this.props.navigation.getParam("coralName"),
     price: this.props.navigation.getParam("coralPrice"),
     total: this.props.navigation.getParam("coralPrice"),
