@@ -13,12 +13,13 @@ import cartStore from "../../stores/cartStore";
 import styles from "./styles";
 
 const CoralCard = ({ coral, navigation }) => {
-  const handlePress = () =>
+  const handlePress = () => {
     navigation.navigate("DetailScreen", {
       coralID: coral.id,
       coralName: coral.name,
       coralPrice: coral.price
     });
+  };
 
   const handleAdd = () => {
     const addToCart = {
@@ -42,13 +43,16 @@ const CoralCard = ({ coral, navigation }) => {
         <Text style={styles.title}>{coral.name}</Text>
         <Text style={styles.category}>{coral.price} KD</Text>
 
-        <Button transparent onPress={handleAdd}>
+        <Button
+          transparent
+          onPress={handleAdd}
+          style={{ alignSelf: "flex-end" }}
+        >
           <Text style={{ color: "grey" }}>Add to cart</Text>
           <Icon
             name="ios-add-circle"
             type="Ionicons"
-            style={{ color: "black" }}
-            size={45}
+            style={{ color: "black", fontSize: 30 }}
           />
         </Button>
       </View>

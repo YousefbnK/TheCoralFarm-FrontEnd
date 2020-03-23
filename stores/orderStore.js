@@ -37,7 +37,7 @@ class OrderStore {
   checkoutOrders = async () => {
     console.log("checkout list - Post request", this.CheckoutList);
     try {
-      const res = await instance.post("orders/create", this.CheckoutList);
+      await instance.post("orders/create", this.CheckoutList);
       console.log("checkout order posted");
     } catch (error) {
       console.error(error);
