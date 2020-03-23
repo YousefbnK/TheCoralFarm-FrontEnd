@@ -40,7 +40,7 @@ const CoralCard = ({ coral, navigation }) => {
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: coral.image }} />
         <Text style={styles.title}>{coral.name}</Text>
-        <Text style={styles.category}>{coral.price}</Text>
+        <Text style={styles.category}>{coral.price} KD</Text>
 
         <Button transparent onPress={handleAdd}>
           <Text style={{ color: "grey" }}>Add to cart</Text>

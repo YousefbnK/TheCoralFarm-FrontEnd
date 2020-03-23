@@ -28,7 +28,7 @@ class CartStore {
       const itemExist = this.items.find(_item => _item.coral === item.coral);
       if (itemExist) {
         itemExist.quantity += item.quantity;
-        itemExist.total += item.total;
+        itemExist.total = parseFloat(item.total) + parseFloat(itemExist.total);
       } else {
         this.items.push(item);
       }
