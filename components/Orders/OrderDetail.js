@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import {
-  Header,
-  Content,
-  List,
-  Card,
-  CardItem,
-  Body,
-  Text,
-  Left,
-  Right
-} from "native-base";
+import { Content, List, Card, Text, Right } from "native-base";
 
 import styles from "./styles";
 

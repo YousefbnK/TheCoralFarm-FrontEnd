@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-
-import { FlatList, View, ScrollView } from "react-native";
-
-import styles from "./styles";
+import { Spinner } from "native-base";
+import { View, ScrollView } from "react-native";
 
 // Component
 import CoralCard from "./CoralCard";
@@ -18,14 +16,18 @@ import coralStore from "../../stores/coralStore";
 
 class CoralList extends Component {
   render() {
-    const coralItems = coralStore.corals.map(item => (
-      <CoralCard coral={item} key={item.name} />
-    ));
-    return (
-      <View>
-        <ScrollView>{coralItems}</ScrollView>
-      </View>
-    );
+    if (coralStore.loading) {
+      return <Spinner />;
+    } else {
+      const coralItems = coralStore.corals.map(item => (
+        <CoralCard coral={item} key={item.name} />
+      ));
+      return (
+        <View>
+          <ScrollView>{coralItems}</ScrollView>
+        </View>
+      );
+    }
   }
 }
 

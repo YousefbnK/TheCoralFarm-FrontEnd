@@ -1,9 +1,6 @@
 import { decorate, observable } from "mobx";
 import { instance } from "./instance";
 
-// for now i'm using a dummy data delete it later
-// import orders from "../orders";
-
 class OrderStore {
   ordersList = [];
   CheckoutList = {};
@@ -16,7 +13,6 @@ class OrderStore {
       this.ordersList = orders;
       this.loading = false;
       console.log("order list mounted");
-      console.log("order list - get request", this.ordersList);
     } catch (err) {
       console.error(err);
     }
@@ -34,7 +30,6 @@ class OrderStore {
 
   // below function send the post request to the api
   checkoutOrders = async () => {
-    console.log("checkout list - Post request", this.CheckoutList);
     try {
       await instance.post("orders/create", this.CheckoutList);
       console.log("checkout order posted");
@@ -42,8 +37,6 @@ class OrderStore {
       console.error(error);
     }
   };
-
-  // fetchOrders = () => (this.ordersList = orders);
 }
 
 decorate(OrderStore, {

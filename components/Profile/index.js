@@ -10,24 +10,37 @@ import { Text } from "native-base";
 
 // Stores
 import authStore from "../../stores/authStore";
+import coralStore from "../../stores/coralStore";
 
 const Profile = ({ navigation }) => {
   const handleLogout = () => {
     authStore.logout();
     navigation.navigate("ListScreen");
   };
+
+  const randomimg = item => {
+    let randemIndex = Math.floor(Math.random() * coralStore.corals.length);
+    const uri = coralStore.corals[randemIndex].image;
+    console.log(uri);
+    return uri;
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.header}></View>
+      <Image style={styles.header} source={{ uri: randomimg() }} />
+
       <Image
         style={styles.avatar}
         source={{ uri: "https://picsum.photos/200" }}
       />
       <View style={styles.body}>
         <View style={styles.bodyContent}>
-          <Text style={styles.name}>John</Text>
-          <Text style={styles.info}>test</Text>
-          <Text style={styles.description}>John</Text>
+          <Text style={styles.name}>Welcome</Text>
+          <Text style={styles.info}>buy corals pleas :)</Text>
+          <Text style={styles.description}>-</Text>
+          <TouchableOpacity style={styles.logout} onPress={handleLogout}>
+            <Text>Log out</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
