@@ -6,7 +6,8 @@ import { Content, List, Text } from "native-base";
 
 // Components
 import OrderCard from "./OrderCard";
-import CartButton from "../Buttons/CartButton";
+
+// import CartButton from "../Buttons/CartButton";
 
 //Stores
 import orderStore from "../../stores/orderStore";
@@ -21,7 +22,6 @@ class OrderList extends Component {
     const orders = orderStore.ordersList.map(order => (
       <OrderCard order={order} key={order.id} />
     ));
-
     return (
       <Content>
         <List>{orders}</List>
@@ -29,8 +29,7 @@ class OrderList extends Component {
     );
   }
 }
-OrderList.navigationOptions = ({ navigation }) => ({
-  title: "Orders History",
-  headerRight: <CartButton />
+OrderList.navigationOptions = () => ({
+  title: "Orders History"
 });
 export default observer(OrderList);

@@ -88,7 +88,7 @@ class CoralDetail extends Component {
               onPress={this.handleAdd}
             >
               <View style={styles.containerCheckout}>
-                <Text style={styles.textCheckout}>Checkout</Text>
+                <Text style={styles.textCheckout}>Add to Cart</Text>
               </View>
             </TouchableHighlight>
           </View>
