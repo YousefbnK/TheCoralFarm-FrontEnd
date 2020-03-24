@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#00BFFF",
+    // backgroundColor: "#00BFFF",
     height: 200
   },
   text: {
@@ -114,9 +114,9 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    
-    justifyContent:"flex-start",
-    }
+
+    justifyContent: "flex-start"
+  }
 });
 
 export default styles;

@@ -21,11 +21,12 @@ const OrderCard = ({ order, navigation }) => {
       orderObj: order,
       orderId: `Order#${order.id}`
     });
-    console.log(orderimg);
   };
 
-  const orderimg = () =>
+  const orderimg = () => {
     order.orderItems.map(item => {
+      const image = `http://172.20.10.3:80${item.image}`;
+      console.log(image);
       return (
         <Image
           style={{
@@ -35,10 +36,11 @@ const OrderCard = ({ order, navigation }) => {
             borderWidth: 4,
             borderColor: "gray"
           }}
-          source={{ uri: item.image }}
+          source={{ uri: image }}
         />
       );
     });
+  };
 
   return (
     <Content>
