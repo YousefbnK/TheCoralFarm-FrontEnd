@@ -30,7 +30,6 @@ const CartButton = ({ navigation }) => {
           name="shopping-cart"
           type="FontAwesome5"
           style={{ color: "black" }}
-          onPress={handlePress}
         />
       </View>
     </Button>

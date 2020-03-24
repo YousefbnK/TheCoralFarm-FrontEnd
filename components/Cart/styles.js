@@ -46,6 +46,24 @@ const styles = StyleSheet.create({
   background: {
     width: null,
     flex: 1
+  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bottom: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  total: {
+    fontSize: 18,
+    fontFamily: "Arial",
+    fontWeight: "bold",
+    marginLeft: 5,
+    marginTop: 70,
+    alignSelf: "flex-end"
   }
 });
 export default styles;

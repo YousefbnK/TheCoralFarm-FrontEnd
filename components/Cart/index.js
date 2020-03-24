@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Text, List, Button, Left, Right, Icon } from "native-base";
+import { View, Text, List, Button } from "native-base";
 
 // Style
 import styles from "./styles";
+
+import { ScrollView } from "react-native";
 
 // Component
 import CartItem from "./CartItem";
@@ -37,20 +39,29 @@ class CoralCart extends Component {
       <CartItem item={item} key={item.coral} />
     ));
     return (
-      <List>
-        {cartItems}
-        {authStore.user ? (
-          <Button full danger onPress={this.checkout}>
-            <Text>Checkout</Text>
-          </Button>
-        ) : (
-          <LoginModal
-            handleClose={this.handleClose}
-            handleOpen={this.handleOpen}
-            state={this.state.modalStatus}
-          />
-        )}
-      </List>
+      <ScrollView>
+        <View>
+          <List>{cartItems}</List>
+          <View>
+            <Text style={styles.total}>Total {cartStore.grandTotal} KD </Text>
+          </View>
+          {authStore.user ? (
+            <View style={styles.container}>
+              <Button style={styles.bottom} full danger onPress={this.checkout}>
+                <View>
+                  <Text>Checkout</Text>
+                </View>
+              </Button>
+            </View>
+          ) : (
+            <LoginModal
+              handleClose={this.handleClose}
+              handleOpen={this.handleOpen}
+              state={this.state.modalStatus}
+            />
+          )}
+        </View>
+      </ScrollView>
     );
   }
 }

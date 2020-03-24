@@ -14,7 +14,6 @@ class AuthStore {
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user
       this.user = jwt_decode(token);
-      console.log("UserData", this.user);
     } else {
       await AsyncStorage.removeItem("myToken");
       delete instance.defaults.headers.common.Authorization;
@@ -73,7 +72,5 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-authStore.checkForToken();
-// console.log("Hey you", authStore.user);
-
+// authStore.checkForToken();
 export default authStore;

@@ -51,6 +51,18 @@ class CartStore {
     await AsyncStorage.removeItem("myData");
   };
 
+  get grandTotal() {
+    let grandTotal = 0;
+    if (this.items.length < 1) {
+      grandTotal = 0;
+    } else {
+      const total = this.items.map(item => parseInt(item.total));
+      const sum = num => num.reduce((a, b) => a + b, 0);
+      grandTotal = sum(total);
+    }
+    return grandTotal;
+  }
+
   get quantity() {
     let quantity = 0;
     if (this.items.length < 1) {
@@ -65,7 +77,8 @@ class CartStore {
 
 decorate(CartStore, {
   items: observable,
-  quantity: computed
+  quantity: computed,
+  grandTotal: computed
 });
 
 const cartStore = new CartStore();
