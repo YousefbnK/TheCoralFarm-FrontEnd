@@ -22,10 +22,18 @@ class Login extends Component {
   submitLogin = () => {
     authStore.login(this.state);
 
-    this.props.handleClose();
+    if (this.props.handleClose) {
+      this.props.handleClose();
+      console.log("there is props");
+      this.props.navigation.navigate("ListScreen");
+    }
   };
 
-  handlePress = () => this.props.register();
+  handlePress = () => {
+    if (this.props.register) {
+      this.props.register();
+    }
+  };
 
   render() {
     return (

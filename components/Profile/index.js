@@ -21,6 +21,7 @@ const Profile = ({ navigation }) => {
   const randomimg = item => {
     let randemIndex = Math.floor(Math.random() * coralStore.corals.length);
     const uri = coralStore.corals[randemIndex].image;
+    console.log(uri);
     return uri;
   };
 
