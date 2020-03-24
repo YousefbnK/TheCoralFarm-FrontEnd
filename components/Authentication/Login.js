@@ -25,7 +25,6 @@ class Login extends Component {
     if (this.props.handleClose) {
       this.props.handleClose();
       console.log("there is props");
-      this.props.navigation.navigate("ListScreen");
     }
   };
 
