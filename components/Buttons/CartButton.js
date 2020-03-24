@@ -22,14 +22,19 @@ const CartButton = ({ navigation }) => {
           justifyContent: "alignContent"
         }}
       >
-        <Text style={{ fontSize: 15, color: "#696969", textAlign: "right" }}>
+        <Text style={{ fontSize: 14, color: "#696969", textAlign: "right" }}>
           {cartStore.quantity}
         </Text>
 
         <Icon
           name="shopping-cart"
           type="FontAwesome5"
-          style={{ color: "black" }}
+          style={{
+            color: "black",
+            marginBottom: 10,
+            fontSize: 20,
+            marginLeft: 8
+          }}
         />
       </View>
     </Button>

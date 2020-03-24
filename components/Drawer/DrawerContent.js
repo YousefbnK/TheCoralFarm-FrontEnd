@@ -2,6 +2,7 @@ import React from "react";
 import { DrawerItems } from "react-navigation-drawer";
 import { Text, View } from "react-native";
 import authStore from "../../stores/authStore";
+import LogoutButton from "../Buttons/LogoutButton";
 
 const DrawerContent = props => (
   <View>
@@ -26,6 +27,7 @@ const DrawerContent = props => (
       </Text>
     </View>
     <DrawerItems {...props} />
+    {authStore.user && <LogoutButton />}
   </View>
 );
 

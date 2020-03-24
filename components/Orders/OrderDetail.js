@@ -27,10 +27,7 @@ class OrderDetail extends Component {
         <List>{this.ordercard}</List>
         <Card>
           <Right>
-            <Text style={styles.text}>
-              {" "}
-              SubTotal: {this.order.totalPrice} KD
-            </Text>
+            <Text style={styles.text}> Total: {this.order.totalPrice} KD</Text>
           </Right>
         </Card>
       </Content>

@@ -26,7 +26,6 @@ const OrderCard = ({ order, navigation }) => {
   const orderimg = () => {
     order.orderItems.map(item => {
       const image = `http://172.20.10.3:80${item.image}`;
-      console.log(image);
       return (
         <Image
           style={{
